@@ -21,4 +21,7 @@ require __DIR__.'/auth.php';
 Route::group(['middleware' => 'auth'], function () { 
 
 	Route::get('dashboard','Admin\DashboardController@index');
+
+	Route::resource('school','Admin\SchoolController');
+	Route::resource('user-school','Admin\UserSchoolController');
 });

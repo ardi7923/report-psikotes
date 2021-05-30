@@ -20,7 +20,7 @@
 <hr class="sidebar-divider">
 
 <li class="nav-item" id="organization-committee">
-  <a class="nav-link" href="{{ url('organization-committe') }}">
+  <a class="nav-link" href="{{ url('school') }}">
     <i class="fas fa-fw fa-users"></i>
     <span>Data Sekolah</span></a>
 </li>
@@ -38,7 +38,7 @@
 </li>
 
 <li class="nav-item" id="organization-committee">
-  <a class="nav-link" href="{{ url('student') }}">
+  <a class="nav-link" href="{{ url('user-school') }}">
     <i class="fas fa-fw fa-user"></i>
     <span>User Sekolah</span></a>
 </li>
