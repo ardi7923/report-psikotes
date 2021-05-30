@@ -124,7 +124,7 @@
                         <tr>
                           <th width="50px"> No </th>
                           <th>Sekolah</th>
-                          <th> Total Peserta </th>
+                          <th> Total Peserta     </th>
                         </tr>
                       </thead>
                       <tbody>

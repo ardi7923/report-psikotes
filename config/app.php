@@ -234,6 +234,10 @@ return [
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
 
+        'CrudService' => App\Services\CrudService::class,
+        'MainService'     => App\Services\MainService::class,
+        'ResponseService' => App\Services\ResponseService::class,
+
     ],
 
 ];
