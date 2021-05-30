@@ -90,7 +90,7 @@ class SchoolController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * json data for datatable.
      *
      * 
      * @return DataTables

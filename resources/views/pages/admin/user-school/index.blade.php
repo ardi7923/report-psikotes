@@ -22,7 +22,7 @@
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                <button type="button" data-url = "{{ url('organization-committe/create') }}" data-size="md" class="btn btn-primary modal_add"> <i class="fa fa-plus"></i> @lang('main.button.add') </button>
+                <button type="button" data-url = "{{ url('user-school/create') }}" data-size="md" class="btn btn-primary modal_add"> <i class="fa fa-plus"></i> @lang('main.button.add') </button>
                 <br><br>
                 <table class="table table-bordered table-hover" id="myTable" width="100%" cellspacing="0">
                   <thead>
@@ -66,13 +66,13 @@
        var table   =  $('#myTable').DataTable({
                             processing: true,
                             serverSide: true,
-                            ajax: '{{ url("organization-committe") }}',
+                            ajax: '{{ url("user-school") }}',
                             columns: [
                                 { data: 'DT_RowIndex', orderable: false, 
                     searchable: false },
                                 { data: 'name' },
                                 { data: 'username' },
-                                { data: 'organization.name' },
+                                { data: 'school.name' },
                                 {data : 'action',orderable: false, searchable: false}
                             ]
                         });
