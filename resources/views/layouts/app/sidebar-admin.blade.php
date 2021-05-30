@@ -3,8 +3,7 @@
 
 <!-- Sidebar - Brand -->
 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-  <img src="{{ asset('logo.png') }}" width="50px" alt="">
-  <div class="sidebar-brand-text mx-3">Smansa</div>
+  <div class="sidebar-brand-text mx-3">Psikotes 2021</div>
 </a>
 
 <!-- Divider -->
@@ -23,34 +22,25 @@
 <li class="nav-item" id="organization-committee">
   <a class="nav-link" href="{{ url('organization-committe') }}">
     <i class="fas fa-fw fa-users"></i>
-    <span>Pengurus</span></a>
+    <span>Data Sekolah</span></a>
 </li>
 
 <li class="nav-item" id="post">
   <a class="nav-link" href="{{ url('post') }}">
     <i class="fas fa-fw fa-image"></i>
-    <span>Postingan</span></a>
+    <span>Import Data</span></a>
 </li>
 
 <li class="nav-item" id="organization-committee">
   <a class="nav-link" href="{{ url('student') }}">
     <i class="fas fa-fw fa-user"></i>
-    <span>Siswa</span></a>
-</li>
-
-<!-- Divider -->
-<hr class="sidebar-divider my-0">
-
-<li class="nav-item" id="organization-committee">
-  <a class="nav-link" href="{{ url('data-training') }}">
-    <i class="fas fa-fw fa-list"></i>
-    <span>Data Training</span></a>
+    <span>Export Data</span></a>
 </li>
 
 <li class="nav-item" id="organization-committee">
-  <a class="nav-link" href="{{ url('result-navybayes') }}">
-    <i class="fas fa-fw fa-calculator"></i>
-    <span>Hitung Naive bayes</span></a>
+  <a class="nav-link" href="{{ url('student') }}">
+    <i class="fas fa-fw fa-user"></i>
+    <span>User Sekolah</span></a>
 </li>
 
 <!-- Divider -->
