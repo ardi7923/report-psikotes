@@ -21,8 +21,11 @@
 
   <!-- Page Wrapper -->
   <div id="wrapper">
+  @if(Auth::user()->role == 'admin')
       @include('layouts.app.sidebar-admin')
-
+  @else
+  @include('layouts.app.sidebar-school')
+  @endif
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
