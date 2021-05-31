@@ -30,6 +30,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user-school','Admin\UserSchoolController');
 
 	Route::get('import-data','Admin\ImportDataController@index');
+
+	Route::get('result','Admin\ResultController@index');
 	// AutoComplete
 	Route::get('autocomplete/school','Autocomplete\AutocompleteSchoolController@get');
 });
