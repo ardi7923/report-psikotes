@@ -21,25 +21,25 @@
 
 <li class="nav-item" id="organization-committee">
   <a class="nav-link" href="{{ url('school') }}">
-    <i class="fas fa-fw fa-users"></i>
+    <i class="fas fa-fw fa-school"></i>
     <span>Data Sekolah</span></a>
 </li>
 
 <li class="nav-item" id="post">
-  <a class="nav-link" href="{{ url('post') }}">
-    <i class="fas fa-fw fa-image"></i>
+  <a class="nav-link" href="{{ url('import-data') }}">
+    <i class="fas fa-fw fa-file-excel"></i>
     <span>Import Data</span></a>
 </li>
 
 <li class="nav-item" id="organization-committee">
-  <a class="nav-link" href="{{ url('student') }}">
-    <i class="fas fa-fw fa-user"></i>
-    <span>Export Data</span></a>
+  <a class="nav-link" href="{{ url('result') }}">
+    <i class="fas fa-fw fa-download"></i>
+    <span>Download Hasil Ujian</span></a>
 </li>
 
 <li class="nav-item" id="organization-committee">
   <a class="nav-link" href="{{ url('user-school') }}">
-    <i class="fas fa-fw fa-user"></i>
+    <i class="fas fa-fw fa-users"></i>
     <span>User Sekolah</span></a>
 </li>
 
