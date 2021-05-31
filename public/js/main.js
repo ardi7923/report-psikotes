@@ -250,6 +250,47 @@ window.keyUpTotal = function(id1,id2,idTotal)
   });
   }
 
+const select2School = function(selectname,url)
+{
+  $('.'+selectname).select2({
+    allowClear: true,
+    width: 'resolve',
+    ajax: {
+      url: url,
+      dataType: 'json',
+
+      data: function(params) {
+        return {
+          q: params.term,
+          page: params.page
+        };
+      },
+
+      processResults: function(data) {
+
+        return {
+          results: data
+        };
+
+      }
+    },
+    // minimumInputLength : 1,
+    templateResult: function(repo) {
+      if (repo.loading) return repo.text;
+      var markup = repo.text;
+      return markup;
+    },
+    templateSelection: function(data) {
+      $('.school_id').val(data.id);
+      $('.school_name').val(data.name);
+      return data.text;
+    },
+    escapeMarkup: function(markup) {
+      return markup;
+    }
+
+  });
+}
 
 const validationAlert = function(text)
 {
@@ -271,4 +312,6 @@ const validationAlert = function(text)
 
     
   });
+
+  
 // ========================================================
