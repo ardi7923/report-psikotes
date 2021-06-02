@@ -326,8 +326,8 @@ const select2Student = function(selectname,url)
       $('.student_id').val(data.id);
       $('.student_no_tes').val(data.no_tes);
       $('.student_name').val(data.nama);
-      $('.student_school').val(data.school);
-      return data.text;
+      $('.student_school').val(data.sekolah);
+      return data.no_tes + ' - '+ data.nama ;
     },
     escapeMarkup: function(markup) {
       return markup;
