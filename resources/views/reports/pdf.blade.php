@@ -3,10 +3,89 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Cetak Laporan </title>
-    <link href="{{ asset('assets-admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
-    
+    <script src="{{ asset('assets-report/chartjs/Chart.js') }}"></script>
 
-    <style type="text/css">
+    <script>
+        // wkhtmltopdf 0.12.5 crash fix.
+        // https://github.com/wkhtmltopdf/wkhtmltopdf/issues/3242#issuecomment-518099192
+        'use strict';
+        (function(setLineDash) {
+            CanvasRenderingContext2D.prototype.setLineDash = function() {
+                if (!arguments[0].length) {
+                    arguments[0] = [1, 0];
+                }
+                // Now, call the original method
+                return setLineDash.apply(this, arguments);
+            };
+        })(CanvasRenderingContext2D.prototype.setLineDash);
+        Function.prototype.bind = Function.prototype.bind || function(thisp) {
+            var fn = this;
+            return function() {
+                return fn.apply(thisp, arguments);
+            };
+        };
+    </script>
+
+    <script>
+        function drawGraphs() {
+            var ctx = document.getElementById("myChart").getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'horizontalBar',
+
+                data: {
+
+                    labels: ["Conventional", "enterprise", "social", "artistic", "investigative", "realistic", ],
+                    datasets: [{
+
+                        label: 'Nilai',
+                        data: [
+                            10, 12, 14, 13, 13, 13, 13
+                        ],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)'
+                        ],
+                        borderWidth: 1,
+                        backgroundColor: "#413684",
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            ticks: {
+                                display: true,
+                                beginAtZero: true,
+                                max: 100,
+                                toolTip: false,
+                                fontSize: 18
+                            }
+                        }],
+                        yAxes: [{
+                            gridLines: {
+                                display: false,
+
+                            },
+                            ticks: {
+                                fontSize: 18,
+                            }
+                        }]
+                    }
+                }
+            });
+        }
+
+        window.onload = function() {
+            drawGraphs();
+        };
+    </script>
+
+    <style>
+        .reportGraph {
+            width: 850px
+        }
+
         body {
 
             background-color: white;
@@ -117,59 +196,16 @@
             padding: 10px;
         }
 
-        .chart-account-impressions {
-            width: 900px;
-            height: 500px;
-            margin: 0 auto;
-
+        div.page {
+            page-break-after: always;
+            page-break-inside: avoid;
         }
     </style>
 
-
-<script type="text/javascript" src="http://www.google.com/jsapi"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.16.0/polyfill.min.js"></script>
-
-    <script type="text/javascript">
-             function init() {
-                google.load("visualization", "1.1", { packages:["corechart"], callback: 'drawCharts' });
-            }
-            function drawCharts() {
-                drawAccountImpressions('chart-account-impressions');
-            }
-            
-            function drawAccountImpressions(containerId) {
-            	var data = google.visualization.arrayToDataTable([
-                    ['Day', 'This month', 'Last month'],
-                    ['01', 1000, 400],
-                    ['05', 800, 700],
-                    ['09', 1000, 700],
-                    ['13', 1000, 400],
-                    ['17', 660, 550],
-                    ['21', 660, 500],
-                    ['23', 750, 700],
-                    ['27', 800, 900]
-                ]);
-                var options = {
-                    width: 700,
-                    height: 400,
-                    hAxis: { title: 'Day',  titleTextStyle: { color: '#333' } },
-                    vAxis: { minValue: 0 },
-                    curveType: 'function',
-                    chartArea: {
-                        top: 30,
-                        left: 50,
-                        height: '70%',
-                        width: '100%'
-                    },
-                    legend: 'bottom'
-                };
-                var chart = new google.visualization.LineChart(document.getElementById(containerId));
-                chart.draw(data, options);
-            }
-    </script>
 </head>
 
-<body onload="init()">
+<body>
+
     <div class="container-fluid" style='margin-bottom:10px;background-color:white;padding:15px'>
         <center><img src="{{ asset('assets-report/kopbaru.png') }}" width="100%"></center><br>
         <div class="row" style="margin-bottom:20px">
@@ -283,7 +319,7 @@
         perbandingan dan perbedaan secara visual dan membuat perbedaan yang nyata pada bentuk atau
         bayangan (shading) dari suatu vigur panjang lebar suatu garis." ])
         <!--  END PERSEPSI BENTUK -->
-        <div class="page_break"></div>
+
         <!-- KEMAMPUAN PENALARAN -->
         @include('reports.widget-kemampuanumum',[
         'image' => "8.jpg",
@@ -303,6 +339,7 @@
         perbandingan dan perbedaan secara visual dan membuat perbedaan yang nyata pada bentuk atau
         bayangan (shading) dari suatu vigur panjang lebar suatu garis." ])
         <!--  END KONSENTRASI -->
+
 
         <!-- DAYA INGAT -->
         @include('reports.widget-kemampuanumum',[
@@ -325,13 +362,27 @@
         <!--  KEMAMPUAN UNTUK MEMAHAMI MASALAH -->
 
 
-        <div class="row">
+        <table style="margin-bottom: 10px;">
+            <tr>
+                <td><img src="{{ asset('assets-report/grafikkiri.jpg') }} "></td>
+                <td>
 
-            <div class="col-sm-2 col-lg-2">
-                <img src="{{ asset('assets-report/grafikkiri.jpg') }} ">
-            </div>
+                    <div style="background-color:#dcdcdc">
 
-        </div>
+                        <div style="color:white;font-size:18px">
+                        </div>
+                        <canvas id="myChart" height="264    px" width="1000px" style="padding-right:15px;color:green"></canvas>
+                        <center>Sumbu X:Skor &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sumbu Y:Minat Kerja/Studi</center>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+
+
+
+
+
 
         <table class="bg-grey" style="width: 100%;color: #ffffff; margin-bottom: 10px;text-align: center; border-collapse: separate; border-spacing: 10px; font-size: 11;">
             <tr>
@@ -412,10 +463,9 @@
             </tbody>
         </table>
 
-        <div id="chart-account-impressions"></div>
     </div>
 
-           
+
 
 </body>
 

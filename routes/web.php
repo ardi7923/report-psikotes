@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Result;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +20,11 @@ Route::get('result-public/check', 'Front\ResultPublicController@check');
 
 
 Route::get('report-result', 'ReportResultController@index');
+
+Route::get('tes-import',function(){
+	(new Result())->importToDb();
+	dd('done');
+});
 
 
 

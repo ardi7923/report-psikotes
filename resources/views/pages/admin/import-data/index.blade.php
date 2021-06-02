@@ -24,17 +24,24 @@ Import Data
     </div>
 
 
+
+
     <div class="col-xl-12 col-lg-12">
+        @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+        @endif
         <div class="card shadow mb-4">
             <div class="card-body">
-                <form action="{{ url('import-data') }}" method="post" enctype="multipart/form-data">
-                @csrf
+                <form action="{{ url('import-data') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="row">
                         <label class="col-sm-1 col-form-label">File Hasil </label>
 
                         <div class="col-xl-4 col-lg-4">
-                            
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1"  accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+
+                            <input type="file" class="form-control-file" name="file_import" accept=".csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
 
                         </div>
                         <div class="col-xl-2 col-lg-2">
