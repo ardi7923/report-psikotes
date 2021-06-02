@@ -37,6 +37,8 @@ Route::group(['middleware' => 'auth','namespace' => 'Admin'], function () {
 
 	Route::get('download-example-excel','DownloadExampleExcelController@download');
 
+	Route::get('student-school','StudentSchoolController@index');
+
 	// AutoComplete
 	Route::get('autocomplete/school','Autocomplete\AutocompleteSchoolController@get');
 	Route::get('autocomplete/student','Autocomplete\AutocompleteStudentController@get');

@@ -22,8 +22,8 @@
 
 <li class="nav-item {{ Request::is('student-school') ? 'active' : '' }}" id="organization-committee">
   <a class="nav-link" href="{{ url('student-school') }}">
-    <i class="fas fa-fw fa-user"></i>
-    <span>Export Data</span></a>
+    <i class="fas fa-fw fa-download"></i>
+    <span>Download Hasil Ujian</span></a>
 </li>
 
 
