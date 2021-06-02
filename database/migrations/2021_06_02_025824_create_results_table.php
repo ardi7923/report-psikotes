@@ -16,6 +16,7 @@ class CreateResultsTable extends Migration
         Schema::create('results', function (Blueprint $table) {
             $table->id();
             $table->string('no_tes')->unique();
+            $table->string('nama');
             $table->string('jenis_kelamin');
             $table->string('umur');
             $table->string('tanggal_lahir');

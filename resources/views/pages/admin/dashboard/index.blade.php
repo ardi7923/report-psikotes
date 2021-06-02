@@ -26,16 +26,16 @@
           <div class="row">
 
             <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
+            <div class="col-xl-4 col-md-6 mb-4">
               <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"> Sekolah</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">10</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $schools }}</div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-user fa-2x text-gray-300"></i>
+                      <i class="fas fa-school fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
@@ -43,16 +43,16 @@
             </div>
 
             <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
+            <div class="col-xl-4 col-md-6 mb-4">
               <div class="card border-left-success shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Peserta</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">10</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $students }}</div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-home fa-2x text-gray-300"></i>
+                      <i class="fas fa-users fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
@@ -60,15 +60,15 @@
             </div>
 
             <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
+            <div class="col-xl-4 col-md-6 mb-4">
               <div class="card border-left-info shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Peserta</div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">User Sekolah</div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">10</div>
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $userSchools }}</div>
                         </div>
 
                       </div>
@@ -81,22 +81,7 @@
               </div>
             </div>
 
-            <!-- Pending Requests Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Postingan</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">10</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-image fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+
           </div>
 
           <!-- Content Row -->
@@ -108,7 +93,7 @@
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Data </h6>
+                  <h6 class="m-0 font-weight-bold text-primary">History Import Data (10 Data Terakhir) </h6>
                   <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -122,13 +107,28 @@
                     <table class="table table-hover table-bordered table-striped">
                       <thead>
                         <tr>
-                          <th width="50px"> No </th>
-                          <th>Sekolah</th>
-                          <th> Total Peserta     </th>
+                          <th width="50px"> No Tes</th>
+                          <th>Nama Sekolah</th>
+                          <th> Nama </th>
+                          <th> Tanggal Import </th>
                         </tr>
                       </thead>
                       <tbody>
-
+                          @forelse($last_import as $l)
+                              <tr>
+                                <td> {{ $l->no_tes }} </td>
+                                <td> {{ $l->sekolah }} </td>
+                                <td> {{ $l->nama }} </td>
+                                <td> 
+                                    {{ date_indo($l->created_at) }} <br>
+                                    {{  get_time_from_date($l->created_at) }}
+                                 </td>
+                              </tr>
+                          @empty
+                          <tr>
+                              <td colspan="4"> <center>  DATA KOSONG </center> </td>
+                          </tr>
+                          @endif
                       </tbody>
                     </table>
                   </div>

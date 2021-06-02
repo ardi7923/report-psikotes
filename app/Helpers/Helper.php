@@ -116,11 +116,4 @@ if(!function_exists('company_get')){
   }
 }
 
-if(!function_exists('recent_beritas')){
-
-  function recent_beritas()
-  {
-    return DB::table('beritas')->orderBy('date','DESC')->limit(3)->get();
-  }
-}
 

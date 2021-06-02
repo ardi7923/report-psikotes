@@ -39,4 +39,5 @@ Route::group(['middleware' => 'auth'], function () {
 
 	// AutoComplete
 	Route::get('autocomplete/school','Autocomplete\AutocompleteSchoolController@get');
+	Route::get('autocomplete/student','Autocomplete\AutocompleteStudentController@get');
 });
