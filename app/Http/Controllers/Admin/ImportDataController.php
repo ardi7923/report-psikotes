@@ -11,4 +11,10 @@ class ImportDataController extends Controller
     {
         return view('pages.admin.import-data.index');
     }
+
+
+    public function store(Request $request)
+    {
+        dd('tes');
+    }
 }

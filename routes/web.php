@@ -31,6 +31,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user-school','Admin\UserSchoolController');
 
 	Route::get('import-data','Admin\ImportDataController@index');
+	Route::post('import-data','Admin\ImportDataController@store');
 
 	Route::get('result','Admin\ResultController@index');
 

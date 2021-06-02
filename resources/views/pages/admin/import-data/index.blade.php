@@ -27,26 +27,26 @@ Import Data
     <div class="col-xl-12 col-lg-12">
         <div class="card shadow mb-4">
             <div class="card-body">
-                <div class="row">
-                    <label class="col-sm-1 col-form-label">File Hasil </label>
-                    <div class="col-xl-4 col-lg-4">
-                        <form>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="validatedCustomFile" required>
-                                <label class="custom-file-label" for="validatedCustomFile">Pilih file...</label>
-                            </div>
+                <form action="{{ url('import-data') }}" method="post" enctype="multipart/form-data">
+                @csrf
+                    <div class="row">
+                        <label class="col-sm-1 col-form-label">File Hasil </label>
 
+                        <div class="col-xl-4 col-lg-4">
+                            
+                        <input type="file" class="form-control-file" id="exampleFormControlFile1"  accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
 
-                        </form>
-                    </div>
-                    <div class="col-xl-2 col-lg-2">
-                        <button class="btn btn-primary" data-toggle="tooltip" title="Upload File"><i class="fa fa-upload"></i> Upload</button>
-                    </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2">
+                            <button type="submit" class="btn btn-primary" data-toggle="tooltip" title="Upload File"><i class="fa fa-upload"></i> Upload</button>
+                        </div>
 
-                    <div class="col-xl-5 col-lg-5 ">
-                        <button id="btn-download" class="btn btn-success" data-toggle="tooltip" title="Contoh File" style="float: right;"><i class="fa fa-file-excel"></i> Download Contoh Excel</button>
+                        <div class="col-xl-5 col-lg-5 ">
+                            <button id="btn-download" class="btn btn-success" data-toggle="tooltip" title="Contoh File" style="float: right;"><i class="fa fa-file-excel"></i> Download Contoh Excel</button>
+                        </div>
+
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
@@ -60,9 +60,9 @@ Import Data
 @endsection
 
 @section('js')
-    <script>
-        $('#btn-download').click(function(){
-            window.open("{{ url('download-example-excel') }}");
-        });
-    </script>
+<script>
+    $('#btn-download').click(function() {
+        window.open("{{ url('download-example-excel') }}");
+    });
+</script>
 @endsection
