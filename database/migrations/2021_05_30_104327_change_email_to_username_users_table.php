@@ -29,7 +29,7 @@ class ChangeEmailToUsernameUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('email');
-            $table->dateTime('email_verified_at');
+            $table->dateTime('email_verified_at')->nullable();
             $table->dropColumn('username');
         });
     }
