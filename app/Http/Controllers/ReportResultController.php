@@ -26,17 +26,17 @@ class ReportResultController extends Controller
 
         // return $pdf->stream();
 
-        // $pdf = PDF::loadView('reports.pdf',compact('chart'))
-        //             ->setOption('enable-javascript',true)
-        //             ->setOption('javascript-delay',5000)
-        //             ->setOption('enable-smart-shrinking', true)
-        //             ->setOption('no-stop-slow-scripts', true)
+        $pdf = PDF::loadView('reports.pdf',compact('chart'))
+                    ->setOption('enable-javascript',true)
+                    ->setOption('javascript-delay',5000)
+                    ->setOption('enable-smart-shrinking', true)
+                    ->setOption('no-stop-slow-scripts', true)
                     
-        //             ->setWarnings(true);
-        // return $pdf->stream();
+                    ->setWarnings(true);
+        return $pdf->stream();
 
         
 
-        return view('reports.pdf');
+        // return view('reports.pdf');
     }
 }
