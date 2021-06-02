@@ -11,7 +11,7 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="{{ url('/') }}">Home</a></li>
-          <li><a class="nav-link scrollto" href="{{ url('information') }}">Hasil Ujian</a></li>
+          <li><a class="nav-link scrollto" href="{{ url('result-public') }}">Hasil Ujian</a></li>
 
 
           <li><a class="getstarted scrollto" href="{{ url('login') }}">Masuk</a></li>

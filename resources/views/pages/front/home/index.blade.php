@@ -11,7 +11,7 @@
           <h2 data-aos="fade-up" data-aos-delay="400">Download Hasil Ujian Anda Disini </h2>
           <div data-aos="fade-up" data-aos-delay="600">
             <div class="text-center text-lg-start">
-              <a href="{{ url('registration-student') }}" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+              <a href="{{ url('result-public') }}" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
                 <span>Download Hasil</span>
                 <i class="bi bi-arrow-right"></i>
               </a>

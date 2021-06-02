@@ -11,7 +11,7 @@
   <meta content="" name="keywords">
   <link rel="icon" href="{{ asset(company_get('logo')) }}">
   @include('layouts.guest.styles')
-
+  @yield('css')
 </head>
 
 <body>
@@ -21,11 +21,13 @@
     
     @yield('content')
 
- @include('layouts.guest.footer')
+
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   @include('layouts.guest.scripts')
+
+  @yield('js')
 
 </body>
 

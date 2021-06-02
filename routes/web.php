@@ -14,10 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/','Front\HomeController@index');
+Route::get('result-public','Front\ResultPublicController@index');
+Route::get('result-public/check','Front\ResultPublicController@check');
+
 
 Route::get('report-result','ReportResultController@index');
 
-// Route::get('report-result','ReportResultController@index');
+
+
+
 
 require __DIR__.'/auth.php';
 

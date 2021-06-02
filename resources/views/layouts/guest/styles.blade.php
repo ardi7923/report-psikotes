@@ -13,6 +13,6 @@
   <link href="{{ asset('assets-front/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
   <link href="{{ asset('assets-front/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
   <link href="{{ asset('assets-front/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-  <link rel="stylesheet" href="{{asset('plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css')}}">
+
   <!-- Template Main CSS File -->
   <link href="{{ asset('assets-front/css/style.css')}}" rel="stylesheet">
