@@ -42,7 +42,7 @@ Import Data
                         </div>
 
                         <div class="col-xl-5 col-lg-5 ">
-                            <button id="btn-download" class="btn btn-success" data-toggle="tooltip" title="Contoh File" style="float: right;"><i class="fa fa-file-excel"></i> Download Contoh Excel</button>
+                            <button type="button" id="btn-download" class="btn btn-success" data-toggle="tooltip" title="Contoh File" style="float: right;"><i class="fa fa-file-excel"></i> Download Contoh Excel</button>
                         </div>
 
                     </div>

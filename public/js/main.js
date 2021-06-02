@@ -292,6 +292,50 @@ const select2School = function(selectname,url)
   });
 }
 
+const select2Student = function(selectname,url)
+{
+  $('.'+selectname).select2({
+    allowClear: true,
+    width: 'resolve',
+    ajax: {
+      url: url,
+      dataType: 'json',
+
+      data: function(params) {
+        return {
+          q: params.term,
+          page: params.page
+        };
+      },
+
+      processResults: function(data) {
+
+        return {
+          results: data
+        };
+
+      }
+    },
+    // minimumInputLength : 1,
+    templateResult: function(repo) {
+      if (repo.loading) return repo.text;
+      var markup = repo.text;
+      return markup;
+    },
+    templateSelection: function(data) {
+      $('.student_id').val(data.id);
+      $('.student_no_tes').val(data.no_tes);
+      $('.student_name').val(data.nama);
+      $('.student_school').val(data.school);
+      return data.text;
+    },
+    escapeMarkup: function(markup) {
+      return markup;
+    }
+
+  });
+}
+
 const validationAlert = function(text)
 {
   swal({
