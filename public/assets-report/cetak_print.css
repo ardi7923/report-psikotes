@@ -1,0 +1,42 @@
+@media print{
+body{
+    font-family: roboto;
+}
+
+table{
+  border-collapse: collapse;
+  font-family: arial;
+  color:#5E5B5C;
+  width:100%;
+}
+
+tbody td{
+  padding: 3px;
+}
+.spasi{
+    padding:5px;
+    background-color:#dcdcdc;
+}
+
+#kepala{
+    background-color:#011b47;
+    color:white;
+}
+
+#kepalabawah{
+    background-color:black;
+    color:white;
+    text-align:center;
+}
+
+.rowsatua{
+    background-color: #0651cd !important;
+    color:white !important;
+}
+
+.rowsatub{
+    background-color: #0651cd;
+    color:white;
+}
+
+}
