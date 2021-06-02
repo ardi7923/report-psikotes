@@ -10,7 +10,7 @@
 <hr class="sidebar-divider my-0">
 
 <!-- Nav Item - Dashboard -->
-<li class="nav-item" id="home">
+<li class="nav-item {{ Request::is('dashboard') ? 'active' : '' }}" id="home">
   <a class="nav-link" href="{{ url('dashboard') }}">
     <i class="fas fa-fw fa-tachometer-alt"></i>
     <span>Dashboard</span></a>
@@ -20,8 +20,8 @@
 <hr class="sidebar-divider">
 
 
-<li class="nav-item" id="organization-committee">
-  <a class="nav-link" href="{{ url('student') }}">
+<li class="nav-item {{ Request::is('student-school') ? 'active' : '' }}" id="organization-committee">
+  <a class="nav-link" href="{{ url('student-school') }}">
     <i class="fas fa-fw fa-user"></i>
     <span>Export Data</span></a>
 </li>

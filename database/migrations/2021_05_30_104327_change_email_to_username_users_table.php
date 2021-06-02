@@ -16,7 +16,7 @@ class ChangeEmailToUsernameUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('email');
             $table->dropColumn('email_verified_at');
-            $table->string('username',10)->unique()->after('name');
+            $table->string('username',30)->unique()->after('name');
         });
     }
 
