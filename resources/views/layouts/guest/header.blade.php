@@ -4,7 +4,7 @@
 
       <a href="{{ url('/') }}" class="logo d-flex align-items-center">
         <img src="{{ asset('logo.png') }}" alt="">
-        <span  >Synergy Consulting   </span>  <span class="d-none d-lg-block d-xl-block" style="margin-left: 10px"> </span > 
+        <span  >{{ company_get('name') }}   </span>  <span class="d-none d-lg-block d-xl-block" style="margin-left: 10px"> </span > 
         <!-- <span class=" .d-block .d-sm-none" >SMANSA  TOBADAK</span> -->
       </a>
 
