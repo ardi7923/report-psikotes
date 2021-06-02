@@ -9,12 +9,12 @@ class DownloadExampleExcelController extends Controller
 {
     public function download()
     {
-        $file= public_path(). "/example-data-import.xls";
+        $file= public_path(). "/example-data-import.csv";
 
         $headers = array(
                   'Content-Type: application/pdf',
                 );
     
-        return response()->download($file, 'example-data-import.xls', $headers);
+        return response()->download($file, 'example-data-import.csv', $headers);
     }
 }

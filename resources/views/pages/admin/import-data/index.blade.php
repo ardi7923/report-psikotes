@@ -41,7 +41,7 @@ Import Data
 
                         <div class="col-xl-4 col-lg-4">
 
-                            <input type="file" class="form-control-file" name="file_import" accept=".csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+                            <input type="file" class="form-control-file" name="file_import" accept=".csv">
 
                         </div>
                         <div class="col-xl-2 col-lg-2">
