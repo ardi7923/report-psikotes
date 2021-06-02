@@ -20,7 +20,7 @@ class AutocompleteStudentController extends Controller
                             ->get();
         
         foreach($schools as $s){
-            $s->text ='<strong>'.$s->nama.' - ' . $s->sekolah .'</strong>';
+            $s->text ='<strong>'.$s->no_tes.' - ' . $s->nama .'<br>'.$s->sekolah.'</strong>';
         }
 
         return $schools;

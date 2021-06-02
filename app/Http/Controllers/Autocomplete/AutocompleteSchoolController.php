@@ -21,7 +21,7 @@ class AutocompleteSchoolController extends Controller
         foreach($schools as $s){
             $data[] = [
                 'id'              => $s->id,
-				'text'            => '<strong>'.$s->name.'</strong>',
+				'text'            => '<strong>'.$s->no_tes.'</strong>',
                 'name'            => $s->name,
             ];
         }
