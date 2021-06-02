@@ -10,6 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <meta name="token" content="{{ csrf_token() }}">
+  <link rel="icon" href="{{ asset(company_get('logo')) }}">
   <title>@yield('title_page')</title>
 
   @include('layouts.app.styles')

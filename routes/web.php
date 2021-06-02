@@ -17,6 +17,8 @@ Route::get('/','Front\HomeController@index');
 
 Route::get('report-result','ReportResultController@index');
 
+// Route::get('report-result','ReportResultController@index');
+
 require __DIR__.'/auth.php';
 
 Route::group(['middleware' => 'auth','namespace' => 'Admin'], function () { 

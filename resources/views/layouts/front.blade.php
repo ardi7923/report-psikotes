@@ -9,7 +9,7 @@
   <meta content="" name="description">
 
   <meta content="" name="keywords">
-
+  <link rel="icon" href="{{ asset(company_get('logo')) }}">
   @include('layouts.guest.styles')
 
 </head>
