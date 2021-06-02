@@ -33,6 +33,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('import-data','Admin\ImportDataController@index');
 
 	Route::get('result','Admin\ResultController@index');
+
+	Route::get('download-example-excel','Admin\DownloadExampleExcelController@download');
+
 	// AutoComplete
 	Route::get('autocomplete/school','Autocomplete\AutocompleteSchoolController@get');
 });

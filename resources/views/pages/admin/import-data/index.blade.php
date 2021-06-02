@@ -44,7 +44,7 @@ Import Data
                     </div>
 
                     <div class="col-xl-5 col-lg-5 ">
-                        <button class="btn btn-success" data-toggle="tooltip" title="Contoh File" style="float: right;"><i class="fa fa-file-excel"></i> Download Contoh Excel</button>
+                        <button id="btn-download" class="btn btn-success" data-toggle="tooltip" title="Contoh File" style="float: right;"><i class="fa fa-file-excel"></i> Download Contoh Excel</button>
                     </div>
                 </div>
             </div>
@@ -57,4 +57,12 @@ Import Data
 
 <script src="{{ asset('js/main.js') }}"></script>
 
+@endsection
+
+@section('js')
+    <script>
+        $('#btn-download').click(function(){
+            window.open("{{ url('download-example-excel') }}");
+        });
+    </script>
 @endsection
