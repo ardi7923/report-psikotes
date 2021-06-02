@@ -13,40 +13,43 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/','Front\HomeController@index');
-Route::get('result-public','Front\ResultPublicController@index');
-Route::get('result-public/check','Front\ResultPublicController@check');
+Route::get('/', 'Front\HomeController@index');
+Route::get('result-public', 'Front\ResultPublicController@index');
+Route::get('result-public/check', 'Front\ResultPublicController@check');
 
 
-Route::get('report-result','ReportResultController@index');
+Route::get('report-result', 'ReportResultController@index');
 
 
 
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
-Route::group(['middleware' => 'auth','namespace' => 'Admin'], function () { 
+Route::group(['middleware' => 'auth'], function () {
 
-	Route::get('dashboard','DashboardController@index');
+	Route::group(['namespace' => 'Admin'], function () {
+		Route::get('dashboard', 'DashboardController@index');
 
-	Route::get('user-profile','UserProfileController@index');
-	Route::post('user-profile/update-user','UserProfileController@updateUser');
-	Route::post('user-profile/renew-password','UserProfileController@renewPassword');
+		Route::get('user-profile', 'UserProfileController@index');
+		Route::post('user-profile/update-user', 'UserProfileController@updateUser');
+		Route::post('user-profile/renew-password', 'UserProfileController@renewPassword');
 
-	Route::resource('school','SchoolController');
-	Route::resource('user-school','UserSchoolController');
+		Route::resource('school', 'SchoolController');
+		Route::resource('user-school', 'UserSchoolController');
 
-	Route::get('import-data','ImportDataController@index');
-	Route::post('import-data','ImportDataController@store');
+		Route::get('import-data', 'ImportDataController@index');
+		Route::post('import-data', 'ImportDataController@store');
 
-	Route::get('result','ResultController@index');
+		Route::get('result', 'ResultController@index');
 
-	Route::get('download-example-excel','DownloadExampleExcelController@download');
+		Route::get('download-example-excel', 'DownloadExampleExcelController@download');
 
-	Route::get('student-school','StudentSchoolController@index');
+		Route::get('student-school', 'StudentSchoolController@index');
+	});
+
 
 	// AutoComplete
-	Route::get('autocomplete/school','Autocomplete\AutocompleteSchoolController@get');
-	Route::get('autocomplete/student','Autocomplete\AutocompleteStudentController@get');
+	Route::get('autocomplete/school', 'Autocomplete\AutocompleteSchoolController@get');
+	Route::get('autocomplete/student', 'Autocomplete\AutocompleteStudentController@get');
 });
