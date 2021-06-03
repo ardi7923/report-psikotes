@@ -214,7 +214,7 @@
 </head>
 
 <body>
-<div class="container-fluid" style='margin: 0 50px 10px 50px ;background-color:white;padding:15px'>
+<div class="container-fluid" style='margin: 0 50px 10px 50px ;background-color:white;'>
     <div class="page">
        
             <center><img src="{{ asset('assets-report/kopbaru.png') }}" width="100%"></center><br>

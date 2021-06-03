@@ -30,7 +30,7 @@ class ResultController extends Controller
         return DataTables::of($data)
             ->addIndexColumn()
             ->addColumn('action', function ($data) {
-                return '<a href="'.url('report-result?type=single?&id=').$data->id.'" target="_blank">
+                return '<a href="'.url('report-result?type=single&id=').$data->id.'" target="_blank">
                         <button class="btn btn-danger"> 
                           <center>  <i class="fa fa-download"> </i> </center>
                         </button>
