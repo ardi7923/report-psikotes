@@ -9,7 +9,7 @@
 	<tr>
 		<td > Sekolah </td> 
 		<td>:</td> 
-		<td>{{ $data->school->name }}</td>
+		<td>{{ $data->school->name}}</td>
 	</tr>
 </table>
 </center>

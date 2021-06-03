@@ -39,7 +39,12 @@
 
                         label: 'Nilai',
                         data: [
-                            10, 12, 14, 13, 13, 13, 13
+                            "{{$data->conventional}}",
+                            "{{$data->enterprise}}",
+                            "{{$data->social}}",
+                            "{{$data->artistic}}",
+                            "{{$data->investigative}}",
+                            "{{$data->realistic}}"
                         ],
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
@@ -167,6 +172,10 @@
             padding-top: 10px;
         }
 
+        .pl-10 {
+            padding-left: 10px;
+        }
+
 
         /* Text align */
         .text-center {
@@ -205,183 +214,130 @@
 </head>
 
 <body>
+<div class="container-fluid" style='margin: 0 50px 10px 50px ;background-color:white;padding:15px'>
+    <div class="page">
+       
+            <center><img src="{{ asset('assets-report/kopbaru.png') }}" width="100%"></center><br>
 
-    <div class="container-fluid" style='margin-bottom:10px;background-color:white;padding:15px'>
-        <center><img src="{{ asset('assets-report/kopbaru.png') }}" width="100%"></center><br>
-        <div class="row" style="margin-bottom:20px">
-            <table>
-                <tbody>
+            <div class="row" style="margin-bottom:20px">
+                <table >
+                    <tbody>
 
-                    <tr>
-                        <td rowspan="5" width="200px">
-                            <div style="text-align:center;text-align:right"><img src="{{ asset('assets-report/nama.png') }}" width="90px"></div>
-                        </td>
+                        <tr>
+                            <td rowspan="5" width="200px">
+                                <div style="text-align:center;text-align:right"><img src="{{ asset('assets-report/nama.png') }}" width="90px"></div>
+                            </td>
 
-                    </tr>
-                    <tr>
-                        <td rowspan="5">
-                            <div style="text-align:left;color:#0080b3;font-weight:bold; width:200px"> Muh Ardi Irawan </div>
-                            <div style="text-align:left;color:#0080b3;font-weight:bold; width:200px"> Laki-laki </div>
-                            <div style="text-align:left;color:#0080b3;font-weight:bold; width:200px"> 14 Tahun </div>
-                        </td>
-                    </tr>
+                        </tr>
+                        <tr>
+                            <td rowspan="5" style="padding-left: 15px;">
+                                <div style="text-align:left;color:#0080b3;font-weight:bold; width:200px; margin-bottom:5px; vertical-align: top;"> {{ $data->nama }} </div>
+                                <div style="text-align:left;color:#0080b3;font-weight:bold; width:200px;margin-bottom:5px; vertical-align: top;"> {{ $data->jenis_kelamin }} </div>
+                                <div style="text-align:left;color:#0080b3;font-weight:bold; width:200px; vertical-align: top;"> {{ $data->umur }} Tahun </div>
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td></td>
-                        <td>Sekolah</td>
-                        <td>: $row->nama_sekolah </td>
-                    </tr>
-                    <tr class="putih">
+                        <tr class="color-blue">
+                            <td></td>
+                            <td>Tanggal Lahir</td>
+                            <td>: {{ $data->tanggal_lahir }} </td>
+                        </tr>
+                        <tr class="color-blue">
 
-                        <td></td>
-                        <td>Tanggal Test </td>
-                        <td>: $row->tgl_test</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>NISN</td>
-                        <td>: $row->no_test</td>
-                    </tr>
+                            <td ></td>
+                            <td>Tanggal Tes </td>
+                            <td>: {{ $data->tanggal_tes }} </td>
+                        </tr>
+                        <tr class="color-blue">
+                            <td></td>
+                            <td style="width: 150px;">Sekolah</td>
+                            <td style="width: 250px;">: {{ $data->sekolah }} </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
+            <h5 style="padding:5px;background-color:#0e81c4;color:white;width:408px">IQ = {{ $data->iq }} ({{ iq_description($data->iq) }} menurut IST)
+            </h5>
+            <img src="{{ (asset('assets-report/judul.jpg'))}}" width="300px" style="margin-top: -20px; margin-bottom: -15px">
 
-                </tbody>
-            </table>
+            @include('reports.widget-kemampuanumum',[
+            'image' => "1.jpg",
+            'title' => "KEMAMPUAN UMUM",
+            'color_title' => "a5bd07",
+            'description' => "Cukup mampu untuk melihat bagian-bagian dari satu benda, gambar dan grafik, membuat
+            perbandingan dan perbedaan secara visual dan membuat perbedaan yang nyata pada bentuk atau
+            bayangan (shading) dari suatu vigur panjang lebar suatu garis." ])
+
+            <!-- PEMAHAMAN SOSIAL -->
+            @include('reports.widget-kemampuanumum',[
+            'image' => "2.jpg",
+            'title' => "PEMAHAMAN SOSIAL",
+            'color_title' => "e79b2b",
+            'description' => "Cukup mampu untuk melihat bagian-bagian dari satu benda, gambar dan grafik, membuat
+            perbandingan dan perbedaan secara visual dan membuat perbedaan yang nyata pada bentuk atau
+            bayangan (shading) dari suatu vigur panjang lebar suatu garis." ])
+            <!-- END PEMAHAMAN SOSIAL -->
+
+            <!-- KEMAMPUAN VERBAL -->
+            @include('reports.widget-kemampuanumum',[
+            'image' => "3.jpg",
+            'title' => "KEMAMPUAN VERBAL",
+            'color_title' => "cb2f30",
+            'description' => "Cukup mampu untuk melihat bagian-bagian dari satu benda, gambar dan grafik, membuat
+            perbandingan dan perbedaan secara visual dan membuat perbedaan yang nyata pada bentuk atau
+            bayangan (shading) dari suatu vigur panjang lebar suatu garis." ])
+            <!-- KEMAMPUAN VERBAL -->
+
+            <!-- KEMAMPUAN BERHITUNG -->
+            @include('reports.widget-kemampuanumum',[
+            'image' => "4.jpg",
+            'title' => "KEMAMPUAN BERHITUNG",
+            'color_title' => "2f9bcc",
+            'description' => "Cukup mampu untuk melihat bagian-bagian dari satu benda, gambar dan grafik, membuat
+            perbandingan dan perbedaan secara visual dan membuat perbedaan yang nyata pada bentuk atau
+            bayangan (shading) dari suatu vigur panjang lebar suatu garis." ])
+            <!--  END KEMAMPUAN BERHITUNG -->
+
+            <!-- KEMAMPUAN BERHITUNG -->
+            @include('reports.widget-kemampuanumum',[
+            'image' => "5.jpg",
+            'title' => "KEMAMPUAN ANALISIS SINTESIS",
+            'color_title' => "ad30cc",
+            'description' => "Cukup mampu untuk melihat bagian-bagian dari satu benda, gambar dan grafik, membuat
+            perbandingan dan perbedaan secara visual dan membuat perbedaan yang nyata pada bentuk atau
+            bayangan (shading) dari suatu vigur panjang lebar suatu garis." ])
+            <!--  END KEMAMPUAN BERHITUNG -->
+
+            <!-- KEMAMPUAN SPASIAL -->
+            @include('reports.widget-kemampuanumum',[
+            'image' => "6.jpg",
+            'title' => "KEMAMPUAN SPASIAL (PANDANG RUANG)",
+            'color_title' => "cd2f6c",
+            'description' => "Cukup mampu untuk melihat bagian-bagian dari satu benda, gambar dan grafik, membuat
+            perbandingan dan perbedaan secara visual dan membuat perbedaan yang nyata pada bentuk atau
+            bayangan (shading) dari suatu vigur panjang lebar suatu garis." ])
+            <!--  END KEMAMPUAN SPASIAL -->
+
         </div>
 
-        <h5 style="padding:5px;background-color:#0e81c4;color:white;width:408px">IQ = 97, menurut IST
-        </h5>
-        <img src="{{ (asset('assets-report/judul.jpg'))}}" width="300px">
 
-        @include('reports.widget-kemampuanumum',[
-        'image' => "1.jpg",
-        'title' => "KEMAMPUAN UMUM",
-        'color_title' => "a5bd07",
-        'description' => "Cukup mampu untuk melihat bagian-bagian dari satu benda, gambar dan grafik, membuat
-        perbandingan dan perbedaan secara visual dan membuat perbedaan yang nyata pada bentuk atau
-        bayangan (shading) dari suatu vigur panjang lebar suatu garis." ])
-
-        <!-- PEMAHAMAN SOSIAL -->
-        @include('reports.widget-kemampuanumum',[
-        'image' => "2.jpg",
-        'title' => "PEMAHAMAN SOSIAL",
-        'color_title' => "e79b2b",
-        'description' => "Cukup mampu untuk melihat bagian-bagian dari satu benda, gambar dan grafik, membuat
-        perbandingan dan perbedaan secara visual dan membuat perbedaan yang nyata pada bentuk atau
-        bayangan (shading) dari suatu vigur panjang lebar suatu garis." ])
-        <!-- END PEMAHAMAN SOSIAL -->
-
-        <!-- KEMAMPUAN VERBAL -->
-        @include('reports.widget-kemampuanumum',[
-        'image' => "3.jpg",
-        'title' => "KEMAMPUAN VERBAL",
-        'color_title' => "cb2f30",
-        'description' => "Cukup mampu untuk melihat bagian-bagian dari satu benda, gambar dan grafik, membuat
-        perbandingan dan perbedaan secara visual dan membuat perbedaan yang nyata pada bentuk atau
-        bayangan (shading) dari suatu vigur panjang lebar suatu garis." ])
-        <!-- KEMAMPUAN VERBAL -->
-
-        <!-- KEMAMPUAN BERHITUNG -->
-        @include('reports.widget-kemampuanumum',[
-        'image' => "4.jpg",
-        'title' => "KEMAMPUAN BERHITUNG",
-        'color_title' => "2f9bcc",
-        'description' => "Cukup mampu untuk melihat bagian-bagian dari satu benda, gambar dan grafik, membuat
-        perbandingan dan perbedaan secara visual dan membuat perbedaan yang nyata pada bentuk atau
-        bayangan (shading) dari suatu vigur panjang lebar suatu garis." ])
-        <!--  END KEMAMPUAN BERHITUNG -->
-
-        <!-- KEMAMPUAN BERHITUNG -->
-        @include('reports.widget-kemampuanumum',[
-        'image' => "5.jpg",
-        'title' => "KEMAMPUAN ANALISIS SINTESIS",
-        'color_title' => "ad30cc",
-        'description' => "Cukup mampu untuk melihat bagian-bagian dari satu benda, gambar dan grafik, membuat
-        perbandingan dan perbedaan secara visual dan membuat perbedaan yang nyata pada bentuk atau
-        bayangan (shading) dari suatu vigur panjang lebar suatu garis." ])
-        <!--  END KEMAMPUAN BERHITUNG -->
-
-        <!-- KEMAMPUAN SPASIAL -->
-        @include('reports.widget-kemampuanumum',[
-        'image' => "6.jpg",
-        'title' => "KEMAMPUAN SPASIAL (PANDANG RUANG)",
-        'color_title' => "cd2f6c",
-        'description' => "Cukup mampu untuk melihat bagian-bagian dari satu benda, gambar dan grafik, membuat
-        perbandingan dan perbedaan secara visual dan membuat perbedaan yang nyata pada bentuk atau
-        bayangan (shading) dari suatu vigur panjang lebar suatu garis." ])
-        <!--  END KEMAMPUAN SPASIAL -->
-
-        <!-- PERSEPSI BENTUK -->
-        @include('reports.widget-kemampuanumum',[
-        'image' => "7.jpg",
-        'title' => "PERSEPSI BENTUK",
-        'color_title' => "b3c728",
-        'description' => "Cukup mampu untuk melihat bagian-bagian dari satu benda, gambar dan grafik, membuat
-        perbandingan dan perbedaan secara visual dan membuat perbedaan yang nyata pada bentuk atau
-        bayangan (shading) dari suatu vigur panjang lebar suatu garis." ])
-        <!--  END PERSEPSI BENTUK -->
-
-        <!-- KEMAMPUAN PENALARAN -->
-        @include('reports.widget-kemampuanumum',[
-        'image' => "8.jpg",
-        'title' => "KEMAMPUAN PENALARAN / ANALISIS LOGIS",
-        'color_title' => "db8e1b",
-        'description' => "Cukup mampu untuk melihat bagian-bagian dari satu benda, gambar dan grafik, membuat
-        perbandingan dan perbedaan secara visual dan membuat perbedaan yang nyata pada bentuk atau
-        bayangan (shading) dari suatu vigur panjang lebar suatu garis." ])
-        <!--  END KEMAMPUAN PENALARAN -->
-
-        <!-- KONSENTRASI -->
-        @include('reports.widget-kemampuanumum',[
-        'image' => "9.jpg",
-        'title' => "KONSENTRASI",
-        'color_title' => "cb2f30",
-        'description' => "Cukup mampu untuk melihat bagian-bagian dari satu benda, gambar dan grafik, membuat
-        perbandingan dan perbedaan secara visual dan membuat perbedaan yang nyata pada bentuk atau
-        bayangan (shading) dari suatu vigur panjang lebar suatu garis." ])
-        <!--  END KONSENTRASI -->
-
-
-        <!-- DAYA INGAT -->
-        @include('reports.widget-kemampuanumum',[
-        'image' => "10.jpg",
-        'title' => "DAYA INGAT",
-        'color_title' => "2f9bcc",
-        'description' => "Cukup mampu untuk melihat bagian-bagian dari satu benda, gambar dan grafik, membuat
-        perbandingan dan perbedaan secara visual dan membuat perbedaan yang nyata pada bentuk atau
-        bayangan (shading) dari suatu vigur panjang lebar suatu garis." ])
-        <!--  END DAYA INGAT -->
-
-        <!-- KEMAMPUAN UNTUK MEMAHAMI MASALAH -->
-        @include('reports.widget-kemampuanumum',[
-        'image' => "11.jpg",
-        'title' => "KEMAMPUAN UNTUK MEMAHAMI MASALAH",
-        'color_title' => "ad30cc",
-        'description' => "Cukup mampu untuk melihat bagian-bagian dari satu benda, gambar dan grafik, membuat
-        perbandingan dan perbedaan secara visual dan membuat perbedaan yang nyata pada bentuk atau
-        bayangan (shading) dari suatu vigur panjang lebar suatu garis." ])
-        <!--  KEMAMPUAN UNTUK MEMAHAMI MASALAH -->
-
-
+    <div class="page">
         <table style="margin-bottom: 10px;">
             <tr>
-                <td><img src="{{ asset('assets-report/grafikkiri.jpg') }} "></td>
+                <td><img src="{{ asset('assets-report/grafikkiri.jpg') }}" style="height: 230px;"></td>
                 <td>
 
                     <div style="background-color:#dcdcdc">
 
                         <div style="color:white;font-size:18px">
                         </div>
-                        <canvas id="myChart" height="264    px" width="1000px" style="padding-right:15px;color:green"></canvas>
+                        <canvas id="myChart" height="200px" width="524px" style="padding-right:15px;color:green"></canvas>
                         <center>Sumbu X:Skor &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sumbu Y:Minat Kerja/Studi</center>
                     </div>
                 </td>
             </tr>
         </table>
-
-
-
-
-
 
 
         <table class="bg-grey" style="width: 100%;color: #ffffff; margin-bottom: 10px;text-align: center; border-collapse: separate; border-spacing: 10px; font-size: 11;">
@@ -390,33 +346,21 @@
                 <td style="background-color: #001B46;" colspan="2">Tertinggi</td>
                 <td style="background-color: #001B46;" colspan="2">Kedua</td>
                 <td style="background-color: #001B46;" colspan="2">Ketiga</td>
-                <td style="background-color: #001B46;">Konsistensi</td>
+                <td style="background-color: #001B46;">Kecenderungan</td>
             </tr>
             <tr>
                 <td style='background-color:#007c94'>Minat Studi</td>
                 <td style='background-color:#007c94'>Investigative</td>
-                <td style='background-color:#4ecad6; width: 20px;'>S</td>
+                <td style='background-color:#4ecad6; width: 20px;'>{{ $data->tertinggi }}</td>
                 <td style='background-color:#007c94'>Conventional</td>
-                <td style='background-color:#4ecad6;  width: 20px;'>A</td>
+                <td style='background-color:#4ecad6;  width: 20px;'>{{ $data->kedua }}</td>
                 <td style='background-color:#007c94'>Investigative</td>
-                <td style='background-color:#4ecad6;  width: 20px;'>I</td>
-                <td style='background-color:#007c94'>S-E-A </td>
+                <td style='background-color:#4ecad6;  width: 20px;'>{{ $data->ketiga }}</td>
+                <td style='background-color:#007c94'>{{ $data->kecenderungan }}</td>
             </tr>
         </table>
 
-        <span style="color: black;">Keterangan : </span>
-        <br>
-        <table border='1px' style='width: 100%; font-size: 10; border-collapse: collapse; color:black'>
-            <tbody>
-                <tr>
-                    <td style='padding:10px'>Taraf Kesesuaian Minat Studi yang dipilih dengan rentang nilai konsistensi 1-3<br>
-                        1. Tinggi (Cita-cita Sangat Sesuai dengan Minat Studi)<br>
-                        2. Sedang (Cita-cita Cukup Sesuai dengan Minat Studi)<br>
-                        3. Rendah (Cita-cita Kurang Sesuai dengan Minat Studi)
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+
         <br>
         <span style="color: black;">Penjelasan :</span>
         <br>
@@ -429,44 +373,75 @@
             </thead>
             <tbody style='background-color:#21a5ff;color:black; border-collapse: collapse;'>
                 <tr>
-                    <td align='center'>Sosial <br>
-                        48% </td>
-                    <td>Lebih menyukai bekerja dengan orang drpd dgn benda seperti aktifitas: menginformasikan sesuatu, membimbing, melatih,
-                        dan berinteraksi dengan orang lain. Berjiwa sosial (senang membantu), suka bekerjasama, dan penuh etika. Berminat dengan
-                        orang dan masalah-masalah mereka, senang mencari tahu sebab-sebab orang berperilaku, pola-pola budaya, gaya hidup.
-                        Biasanya digambarkan sebagai: bersahabat, senang berkawan dan bekerjasama dengan orang lain, murah hati (dermawan).
-                        Biasanya digambarkan sebagai: penuh pemikiran, empatik, idealistic, bertanggung jawab, dan peduli dengan kesulitan orang
-                        lain. </td>
+                    <td align='center'>{{ $data->orientasisatu }} <br>
+                        {{ round($data->orientasisatupersen) }}%
+                    </td>
+                    <td style="text-align: justify;">{{ $data->karakteristiksatu }} </td>
                 </tr>
                 <tr>
-                    <td align='center'>Sosial <br>
-                        48% </td>
-                    <td>Lebih menyukai bekerja dengan orang drpd dgn benda seperti aktifitas: menginformasikan sesuatu, membimbing, melatih,
-                        dan berinteraksi dengan orang lain. Berjiwa sosial (senang membantu), suka bekerjasama, dan penuh etika. Berminat dengan
-                        orang dan masalah-masalah mereka, senang mencari tahu sebab-sebab orang berperilaku, pola-pola budaya, gaya hidup.
-                        Biasanya digambarkan sebagai: bersahabat, senang berkawan dan bekerjasama dengan orang lain, murah hati (dermawan).
-                        Biasanya digambarkan sebagai: penuh pemikiran, empatik, idealistic, bertanggung jawab, dan peduli dengan kesulitan orang
-                        lain. </td>
+                    <td align='center'>{{ $data->orientasidua }} <br>
+                        {{ round($data->orientasiduapersen) }}%
+                    </td>
+                    <td style="text-align: justify;">{{ $data->karakteristikdua }} </td>
                 </tr>
                 <tr>
-                    <td align='center'>Sosial <br>
-                        48% </td>
-                    <td>Lebih menyukai bekerja dengan orang drpd dgn benda seperti aktifitas: menginformasikan sesuatu, membimbing, melatih,
-                        dan berinteraksi dengan orang lain. Berjiwa sosial (senang membantu), suka bekerjasama, dan penuh etika. Berminat dengan
-                        orang dan masalah-masalah mereka, senang mencari tahu sebab-sebab orang berperilaku, pola-pola budaya, gaya hidup.
-                        Biasanya digambarkan sebagai: bersahabat, senang berkawan dan bekerjasama dengan orang lain, murah hati (dermawan).
-                        Biasanya digambarkan sebagai: penuh pemikiran, empatik, idealistic, bertanggung jawab, dan peduli dengan kesulitan orang
-                        lain. </td>
+                    <td align='center'>{{ $data->orientasitiga }} <br>
+                        {{ round($data->orientasitigapersen) }}%
+                    </td>
+                    <td style="text-align: justify;">{{ $data->karakteristiktiga }} </td>
                 </tr>
 
 
             </tbody>
         </table>
 
+        <br>
+        <table border="1" style="width: 100%; border-collapse: collapse;">
+            <tr>
+                <td colspan="2" class="text-bold text-center" style="color: white; background: #000;"> Jurusan yang Disarankan </td>
+            </tr>
+            <tr>
+                <td class=" text-center text-bold"> Rekomendasi 1</td>
+                <td class="pl-10 text-bold" style="width: 550px"> {{ $data->rekom1 }} </td>
+            </tr>
+            <tr>
+                <td class="text-center text-bold"> Rekomendasi 2</td>
+                <td class="pl-10 text-bold"> {{ $data->rekom2 }} </td>
+            </tr>
+        </table>
+
+        <table style="width: 100%; margin-top: 40px;">
+            
+        <thead>
+                <tr>
+                    <th style="width: 50%;">
+                        Psikolog Pemeriksa
+                        
+                    </th>
+                    <th>
+                        Direktur Educare
+                    </th>
+                </tr>
+                <tr>
+                    <th style="padding-top: 100px;">
+                        {{ $data->pemeriksa }}
+                        <br>
+                        {{ $data->id_pemeriksa }}
+                        
+                    </th>
+                    <th style="padding-top: 100px;">
+                        {{ company_get('director') }}
+                    </th>
+                </tr>
+            </thead>
+
+
+        </table>
+
+
     </div>
 
-
-
+</div>
 </body>
 
 </html>
