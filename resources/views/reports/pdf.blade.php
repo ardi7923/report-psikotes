@@ -217,8 +217,11 @@
     <div class="container-fluid" style='margin: 0 50px 10px 50px ;background-color:white;'>
         <div class="page">
 
-            <center><img src="{{ asset('assets-report/kopbaru.png') }}" width="100%"></center><br>
-
+            <center><img src="{{ asset(company_get('logo')) }}" width="400px" height="80px"></center><br>
+            <center>
+                <h1 class="color-blue" style="margin-top: -5px;"> <strong> PEMERIKSAAN PSIKOLOGIS</strong></h1>
+            </center>
+            <hr style="color: black; border: 3px solid black; margin-top: -18px;">
             <div class="row" style="margin-bottom:20px">
                 <table>
                     <tbody>
@@ -314,7 +317,8 @@
             'score' => "$data->k_spasial"
             ])
             <!--  END KEMAMPUAN SPASIAL -->
-
+        </div>
+        <div class="page">
             <!-- PERSEPSI BENTUK -->
             @include('reports.widget-kemampuanumum',[
             'image' => "7.jpg",
@@ -363,7 +367,18 @@
 
             <table style="margin-bottom: 10px;">
                 <tr>
-                    <td><img src="{{ asset('assets-report/grafikkiri.jpg') }}" style="height: 230px;"></td>
+                    <td>
+                        <div style="height: 230px; background-color: #CA402F; width: 164px;">
+                            <img src="{{ asset('assets-report/graphicon.png') }}" width="90px" height="150px" style="display: block;margin-left: auto;margin-right: auto;" />
+                            <div class="text-center text-bold" style="color: white;">
+                                Grafik Orientasi <br>
+                                Minat Studi <br><br>
+                                {{ company_get('name') }}
+                            </div>
+                        </div>
+
+
+                    </td>
                     <td>
 
                         <div style="background-color:#dcdcdc">
@@ -458,7 +473,7 @@
 
                         </th>
                         <th>
-                            Direktur Educare
+                            Direktur {{ company_get('name') }}
                         </th>
                     </tr>
                     <tr>
