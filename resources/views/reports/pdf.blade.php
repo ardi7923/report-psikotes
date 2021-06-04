@@ -36,7 +36,6 @@
 
                     labels: ["Conventional", "enterprise", "social", "artistic", "investigative", "realistic", ],
                     datasets: [{
-
                         label: 'Nilai',
                         data: [
                             "{{$data->conventional}}",
@@ -57,6 +56,7 @@
                     }]
                 },
                 options: {
+                    
                     scales: {
                         xAxes: [{
                             ticks: {
@@ -64,7 +64,7 @@
                                 beginAtZero: true,
                                 max: 100,
                                 toolTip: false,
-                                fontSize: 18
+                                fontSize: 12
                             }
                         }],
                         yAxes: [{
@@ -73,7 +73,7 @@
 
                             },
                             ticks: {
-                                fontSize: 18,
+                                fontSize: 12,
                             }
                         }]
                     }

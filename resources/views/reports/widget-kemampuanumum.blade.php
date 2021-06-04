@@ -9,7 +9,7 @@
 
                 <img style="width: 500px;" src="{{  asset(image_kemampuan($score)) }}"><br>
 
-                <p style="margin : 5px 0 0 0; font-size: 12; text-align: justify; color:black">{{ description_kemampuan($score,$title) }}</p>
+                <p style="margin : 5px 0 0 0; font-size: 13; text-align: justify; color:black">{{ description_kemampuan($score,$title) }}</p>
             </div>
         </td>
     </tr>
