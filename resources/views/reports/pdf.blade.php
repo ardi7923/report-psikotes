@@ -260,7 +260,7 @@
                 </table>
             </div>
 
-            <h5 style="padding:5px;background-color:#0e81c4;color:white;width:408px">IQ = {{ $data->iq }} ({{ iq_description($data->iq) }} menurut IST)
+            <h5 style="padding:5px;background-color:#0e81c4;color:white;width:408px; margin-top: -10px;">IQ = {{ $data->iq }} ({{ iq_description($data->iq) }} menurut IST)
             </h5>
             <img src="{{ (asset('assets-report/judul.jpg'))}}" width="300px" style="margin-top: -20px; margin-bottom: -15px">
 
@@ -317,8 +317,7 @@
             'score' => "$data->k_spasial"
             ])
             <!--  END KEMAMPUAN SPASIAL -->
-        </div>
-        <div class="page">
+
             <!-- PERSEPSI BENTUK -->
             @include('reports.widget-kemampuanumum',[
             'image' => "7.jpg",
@@ -336,6 +335,12 @@
             'score' => "$data->k_penalaran"
             ])
             <!--  END KEMAMPUAN PENALARAN / ANALISIS LOGIS -->
+
+        </div>
+        <div class="page">
+
+
+
 
             <!-- KONSENTRASI -->
             @include('reports.widget-kemampuanumum',[
@@ -430,19 +435,19 @@
                         <td align='center'>{{ $data->orientasisatu }} <br>
                             {{ round($data->orientasisatupersen) }}%
                         </td>
-                        <td style="text-align: justify;">{{ $data->karakteristiksatu }} </td>
+                        <td style="text-align: justify; font-size: 11;">{{ $data->karakteristiksatu }} </td>
                     </tr>
                     <tr>
                         <td align='center'>{{ $data->orientasidua }} <br>
                             {{ round($data->orientasiduapersen) }}%
                         </td>
-                        <td style="text-align: justify;">{{ $data->karakteristikdua }} </td>
+                        <td style="text-align: justify; font-size: 11;">{{ $data->karakteristikdua }} </td>
                     </tr>
                     <tr>
                         <td align='center'>{{ $data->orientasitiga }} <br>
                             {{ round($data->orientasitigapersen) }}%
                         </td>
-                        <td style="text-align: justify;">{{ $data->karakteristiktiga }} </td>
+                        <td style="text-align: justify; font-size: 11;">{{ $data->karakteristiktiga }} </td>
                     </tr>
 
 

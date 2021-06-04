@@ -20,7 +20,6 @@ class ReportResultController extends Controller
                     ->setOption('javascript-delay',1500)
                     ->setOption('enable-smart-shrinking', true)
                     ->setOption('no-stop-slow-scripts', true)
-                    
                     ->setWarnings(true);
         return $pdf->stream();
 
