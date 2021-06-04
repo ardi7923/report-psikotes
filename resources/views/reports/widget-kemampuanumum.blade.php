@@ -4,12 +4,12 @@
             <img src="{{ asset('assets-report/'.$image) }}" width="110px" height="122px">
         </td>
         <td>
-            <div style="background-color:#dcdcdc; padding : 12px">
+            <div style="background-color:#dcdcdc; padding : 12px; width:630px; height:100px">
                 <h4 style="color:#{{ $color_title }}; margin: 0 0 5px 0;"><b>{{ $title }}</b></h4>
 
-                <img style="width: 500px;" src="{{ asset('assets-report/ket1.png')}}"><br>
+                <img style="width: 500px;" src="{{  asset(image_kemampuan($score)) }}"><br>
 
-                <p style="margin : 5px 0 0 0; font-size: 11; text-align: justify; color:black">{{ $description }}</p>
+                <p style="margin : 5px 0 0 0; font-size: 12; text-align: justify; color:black">{{ description_kemampuan($score,$title) }}</p>
             </div>
         </td>
     </tr>

@@ -206,7 +206,7 @@
         }
 
         div.page {
-            page-break-after: always;
+            /* page-break-after: always; */
             page-break-inside: avoid;
         }
     </style>
@@ -214,13 +214,13 @@
 </head>
 
 <body>
-<div class="container-fluid" style='margin: 0 50px 10px 50px ;background-color:white;'>
-    <div class="page">
-       
+    <div class="container-fluid" style='margin: 0 50px 10px 50px ;background-color:white;'>
+        <div class="page">
+
             <center><img src="{{ asset('assets-report/kopbaru.png') }}" width="100%"></center><br>
 
             <div class="row" style="margin-bottom:20px">
-                <table >
+                <table>
                     <tbody>
 
                         <tr>
@@ -244,7 +244,7 @@
                         </tr>
                         <tr class="color-blue">
 
-                            <td ></td>
+                            <td></td>
                             <td>Tanggal Tes </td>
                             <td>: {{ $data->tanggal_tes }} </td>
                         </tr>
@@ -264,29 +264,27 @@
             @include('reports.widget-kemampuanumum',[
             'image' => "1.jpg",
             'title' => "KEMAMPUAN UMUM",
+            'score' => "$data->k_umum",
             'color_title' => "a5bd07",
             'description' => "Cukup mampu untuk melihat bagian-bagian dari satu benda, gambar dan grafik, membuat
             perbandingan dan perbedaan secara visual dan membuat perbedaan yang nyata pada bentuk atau
             bayangan (shading) dari suatu vigur panjang lebar suatu garis." ])
 
-            <!-- PEMAHAMAN SOSIAL -->
+
             @include('reports.widget-kemampuanumum',[
             'image' => "2.jpg",
             'title' => "PEMAHAMAN SOSIAL",
+            'score' => "$data->k_sosial",
             'color_title' => "e79b2b",
-            'description' => "Cukup mampu untuk melihat bagian-bagian dari satu benda, gambar dan grafik, membuat
-            perbandingan dan perbedaan secara visual dan membuat perbedaan yang nyata pada bentuk atau
-            bayangan (shading) dari suatu vigur panjang lebar suatu garis." ])
-            <!-- END PEMAHAMAN SOSIAL -->
+            ])
 
             <!-- KEMAMPUAN VERBAL -->
             @include('reports.widget-kemampuanumum',[
             'image' => "3.jpg",
             'title' => "KEMAMPUAN VERBAL",
             'color_title' => "cb2f30",
-            'description' => "Cukup mampu untuk melihat bagian-bagian dari satu benda, gambar dan grafik, membuat
-            perbandingan dan perbedaan secara visual dan membuat perbedaan yang nyata pada bentuk atau
-            bayangan (shading) dari suatu vigur panjang lebar suatu garis." ])
+            'score' => "$data->k_verbal",
+            ])
             <!-- KEMAMPUAN VERBAL -->
 
             <!-- KEMAMPUAN BERHITUNG -->
@@ -294,154 +292,195 @@
             'image' => "4.jpg",
             'title' => "KEMAMPUAN BERHITUNG",
             'color_title' => "2f9bcc",
-            'description' => "Cukup mampu untuk melihat bagian-bagian dari satu benda, gambar dan grafik, membuat
-            perbandingan dan perbedaan secara visual dan membuat perbedaan yang nyata pada bentuk atau
-            bayangan (shading) dari suatu vigur panjang lebar suatu garis." ])
+            'score' => "$data->k_berhitung",
+            ])
             <!--  END KEMAMPUAN BERHITUNG -->
 
-            <!-- KEMAMPUAN BERHITUNG -->
+
+            <!-- KEMAMPUAN ANALISIS SINTESIS -->
             @include('reports.widget-kemampuanumum',[
             'image' => "5.jpg",
             'title' => "KEMAMPUAN ANALISIS SINTESIS",
             'color_title' => "ad30cc",
-            'description' => "Cukup mampu untuk melihat bagian-bagian dari satu benda, gambar dan grafik, membuat
-            perbandingan dan perbedaan secara visual dan membuat perbedaan yang nyata pada bentuk atau
-            bayangan (shading) dari suatu vigur panjang lebar suatu garis." ])
-            <!--  END KEMAMPUAN BERHITUNG -->
+            'score' => "$data->k_analisis"
+            ])
+            <!--  KEMAMPUAN ANALISIS SINTESIS -->
 
             <!-- KEMAMPUAN SPASIAL -->
             @include('reports.widget-kemampuanumum',[
             'image' => "6.jpg",
             'title' => "KEMAMPUAN SPASIAL (PANDANG RUANG)",
             'color_title' => "cd2f6c",
-            'description' => "Cukup mampu untuk melihat bagian-bagian dari satu benda, gambar dan grafik, membuat
-            perbandingan dan perbedaan secara visual dan membuat perbedaan yang nyata pada bentuk atau
-            bayangan (shading) dari suatu vigur panjang lebar suatu garis." ])
+            'score' => "$data->k_spasial"
+            ])
             <!--  END KEMAMPUAN SPASIAL -->
+
+            <!-- PERSEPSI BENTUK -->
+            @include('reports.widget-kemampuanumum',[
+            'image' => "7.jpg",
+            'title' => "PERSEPSI BENTUK",
+            'color_title' => "b3c728",
+            'score' => "$data->persepsi_bentuk"
+            ])
+            <!--  END PERSEPSI BENTUK -->
+
+            <!-- KEMAMPUAN PENALARAN / ANALISIS LOGIS -->
+            @include('reports.widget-kemampuanumum',[
+            'image' => "8.jpg",
+            'title' => "KEMAMPUAN PENALARAN / ANALISIS LOGIS",
+            'color_title' => "db8e1b",
+            'score' => "$data->k_penalaran"
+            ])
+            <!--  END KEMAMPUAN PENALARAN / ANALISIS LOGIS -->
+
+            <!-- KONSENTRASI -->
+            @include('reports.widget-kemampuanumum',[
+            'image' => "9.jpg",
+            'title' => "KONSENTRASI",
+            'color_title' => "cb2f30",
+            'score' => "$data->konsentrasi"
+            ])
+            <!--  END KONSENTRASI -->
+
+            <!-- DAYA INGAT -->
+            @include('reports.widget-kemampuanumum',[
+            'image' => "10.jpg",
+            'title' => "DAYA INGAT",
+            'color_title' => "2f9bcc",
+            'score' => "$data->daya_ingat"
+            ])
+            <!--  END DAYA INGAT -->
+
+            <!-- KEMAMPUAN UNTUK MEMAHAMI MASALAH -->
+            @include('reports.widget-kemampuanumum',[
+            'image' => "11.jpg",
+            'title' => "KEMAMPUAN UNTUK MEMAHAMI MASALAH",
+            'color_title' => "ad30cc",
+            'score' => "$data->k_memahami_masalah"
+            ])
+            <!--  END  KEMAMPUAN UNTUK MEMAHAMI MASALAH -->
+
+
+            <table style="margin-bottom: 10px;">
+                <tr>
+                    <td><img src="{{ asset('assets-report/grafikkiri.jpg') }}" style="height: 230px;"></td>
+                    <td>
+
+                        <div style="background-color:#dcdcdc">
+
+                            <div style="color:white;font-size:18px">
+                            </div>
+                            <canvas id="myChart" height="200px" width="557px" style="padding-right:15px;color:green"></canvas>
+                            <center>Sumbu X:Skor &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sumbu Y:Minat Kerja/Studi</center>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+
+            <table class="bg-grey" style="width: 100%;color: #ffffff; margin-bottom: 10px;text-align: center; border-collapse: separate; border-spacing: 10px; font-size: 11;">
+                <tr>
+                    <td style="background-color: #001B46; width: 80px;">Level</td>
+                    <td style="background-color: #001B46;" colspan="2">Tertinggi</td>
+                    <td style="background-color: #001B46;" colspan="2">Kedua</td>
+                    <td style="background-color: #001B46;" colspan="2">Ketiga</td>
+                    <td style="background-color: #001B46;">Kecenderungan</td>
+                </tr>
+                <tr>
+                    <td style='background-color:#007c94'>Minat Studi</td>
+                    <td style='background-color:#007c94'>{{ minat_studi($data)[0]['name'] }}</td>
+                    <td style='background-color:#4ecad6; width: 20px;'>{{ $data->tertinggi }}</td>
+                    <td style='background-color:#007c94'>{{ minat_studi($data)[1]['name'] }}</td>
+                    <td style='background-color:#4ecad6;  width: 20px;'>{{ $data->kedua }}</td>
+                    <td style='background-color:#007c94'>{{ minat_studi($data)[2]['name'] }}</td>
+                    <td style='background-color:#4ecad6;  width: 20px;'>{{ $data->ketiga }}</td>
+                    <td style='background-color:#007c94'>{{ $data->kecenderungan }}</td>
+                </tr>
+            </table>
+
+        </div>
+        <div class="page">
+            <br>
+            <span style="color: black;">Penjelasan :</span>
+            <br>
+            <table border='1px' class="" style="border-collapse: collapse;">
+                <thead id='kepalabawah'>
+                    <tr>
+                        <th>Orientasi Minat</th>
+                        <th>Karakteristik</th>
+                    </tr>
+                </thead>
+                <tbody style='background-color:#21a5ff;color:black; border-collapse: collapse;'>
+                    <tr>
+                        <td align='center'>{{ $data->orientasisatu }} <br>
+                            {{ round($data->orientasisatupersen) }}%
+                        </td>
+                        <td style="text-align: justify;">{{ $data->karakteristiksatu }} </td>
+                    </tr>
+                    <tr>
+                        <td align='center'>{{ $data->orientasidua }} <br>
+                            {{ round($data->orientasiduapersen) }}%
+                        </td>
+                        <td style="text-align: justify;">{{ $data->karakteristikdua }} </td>
+                    </tr>
+                    <tr>
+                        <td align='center'>{{ $data->orientasitiga }} <br>
+                            {{ round($data->orientasitigapersen) }}%
+                        </td>
+                        <td style="text-align: justify;">{{ $data->karakteristiktiga }} </td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+
+            <br>
+            <table border="1" style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <td colspan="2" class="text-bold text-center" style="color: white; background: #000;"> Jurusan yang Disarankan </td>
+                </tr>
+                <tr>
+                    <td class=" text-center text-bold"> Rekomendasi 1</td>
+                    <td class="pl-10 text-bold" style="width: 550px"> {{ $data->rekom1 }} </td>
+                </tr>
+                <tr>
+                    <td class="text-center text-bold"> Rekomendasi 2</td>
+                    <td class="pl-10 text-bold"> {{ $data->rekom2 }} </td>
+                </tr>
+            </table>
+
+            <table style="width: 100%; margin-top: 40px;">
+
+                <thead>
+                    <tr>
+                        <th style="width: 50%;">
+                            Psikolog Pemeriksa
+
+                        </th>
+                        <th>
+                            Direktur Educare
+                        </th>
+                    </tr>
+                    <tr>
+                        <th style="padding-top: 100px;">
+                            {{ $data->pemeriksa }}
+                            <br>
+                            {{ $data->id_pemeriksa }}
+
+                        </th>
+                        <th style="padding-top: 100px;">
+                            {{ company_get('director') }}
+                        </th>
+                    </tr>
+                </thead>
+
+
+            </table>
+
 
         </div>
 
-
-    <div class="page">
-        <table style="margin-bottom: 10px;">
-            <tr>
-                <td><img src="{{ asset('assets-report/grafikkiri.jpg') }}" style="height: 230px;"></td>
-                <td>
-
-                    <div style="background-color:#dcdcdc">
-
-                        <div style="color:white;font-size:18px">
-                        </div>
-                        <canvas id="myChart" height="200px" width="524px" style="padding-right:15px;color:green"></canvas>
-                        <center>Sumbu X:Skor &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sumbu Y:Minat Kerja/Studi</center>
-                    </div>
-                </td>
-            </tr>
-        </table>
-
-
-        <table class="bg-grey" style="width: 100%;color: #ffffff; margin-bottom: 10px;text-align: center; border-collapse: separate; border-spacing: 10px; font-size: 11;">
-            <tr>
-                <td style="background-color: #001B46; width: 80px;">Level</td>
-                <td style="background-color: #001B46;" colspan="2">Tertinggi</td>
-                <td style="background-color: #001B46;" colspan="2">Kedua</td>
-                <td style="background-color: #001B46;" colspan="2">Ketiga</td>
-                <td style="background-color: #001B46;">Kecenderungan</td>
-            </tr>
-            <tr>
-                <td style='background-color:#007c94'>Minat Studi</td>
-                <td style='background-color:#007c94'>Investigative</td>
-                <td style='background-color:#4ecad6; width: 20px;'>{{ $data->tertinggi }}</td>
-                <td style='background-color:#007c94'>Conventional</td>
-                <td style='background-color:#4ecad6;  width: 20px;'>{{ $data->kedua }}</td>
-                <td style='background-color:#007c94'>Investigative</td>
-                <td style='background-color:#4ecad6;  width: 20px;'>{{ $data->ketiga }}</td>
-                <td style='background-color:#007c94'>{{ $data->kecenderungan }}</td>
-            </tr>
-        </table>
-
-
-        <br>
-        <span style="color: black;">Penjelasan :</span>
-        <br>
-        <table border='1px' class="" style="border-collapse: collapse;">
-            <thead id='kepalabawah'>
-                <tr>
-                    <th>Orientasi Minat</th>
-                    <th>Karakteristik</th>
-                </tr>
-            </thead>
-            <tbody style='background-color:#21a5ff;color:black; border-collapse: collapse;'>
-                <tr>
-                    <td align='center'>{{ $data->orientasisatu }} <br>
-                        {{ round($data->orientasisatupersen) }}%
-                    </td>
-                    <td style="text-align: justify;">{{ $data->karakteristiksatu }} </td>
-                </tr>
-                <tr>
-                    <td align='center'>{{ $data->orientasidua }} <br>
-                        {{ round($data->orientasiduapersen) }}%
-                    </td>
-                    <td style="text-align: justify;">{{ $data->karakteristikdua }} </td>
-                </tr>
-                <tr>
-                    <td align='center'>{{ $data->orientasitiga }} <br>
-                        {{ round($data->orientasitigapersen) }}%
-                    </td>
-                    <td style="text-align: justify;">{{ $data->karakteristiktiga }} </td>
-                </tr>
-
-
-            </tbody>
-        </table>
-
-        <br>
-        <table border="1" style="width: 100%; border-collapse: collapse;">
-            <tr>
-                <td colspan="2" class="text-bold text-center" style="color: white; background: #000;"> Jurusan yang Disarankan </td>
-            </tr>
-            <tr>
-                <td class=" text-center text-bold"> Rekomendasi 1</td>
-                <td class="pl-10 text-bold" style="width: 550px"> {{ $data->rekom1 }} </td>
-            </tr>
-            <tr>
-                <td class="text-center text-bold"> Rekomendasi 2</td>
-                <td class="pl-10 text-bold"> {{ $data->rekom2 }} </td>
-            </tr>
-        </table>
-
-        <table style="width: 100%; margin-top: 40px;">
-            
-        <thead>
-                <tr>
-                    <th style="width: 50%;">
-                        Psikolog Pemeriksa
-                        
-                    </th>
-                    <th>
-                        Direktur Educare
-                    </th>
-                </tr>
-                <tr>
-                    <th style="padding-top: 100px;">
-                        {{ $data->pemeriksa }}
-                        <br>
-                        {{ $data->id_pemeriksa }}
-                        
-                    </th>
-                    <th style="padding-top: 100px;">
-                        {{ company_get('director') }}
-                    </th>
-                </tr>
-            </thead>
-
-
-        </table>
-
-
     </div>
-
-</div>
 </body>
 
 </html>

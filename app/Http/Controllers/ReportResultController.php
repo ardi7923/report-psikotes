@@ -15,8 +15,6 @@ class ReportResultController extends Controller
             $data = Result::find($request->id);
         }
 
-
-
         $pdf = PDF::loadView('reports.pdf',compact('data'))
                     ->setOption('enable-javascript',true)
                     ->setOption('javascript-delay',1500)
