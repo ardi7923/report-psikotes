@@ -374,7 +374,7 @@
             <!--  END  KEMAMPUAN UNTUK MEMAHAMI MASALAH -->
 
 
-            <table style="margin-bottom: 10px;">
+            <table style="margin-bottom: 10px; margin-left: -5px;">
                 <tr>
                     <td>
                         <div style="height: 230px; background-color: #CA402F; width: 164px;">
