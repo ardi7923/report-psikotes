@@ -16,6 +16,7 @@ class ReportResultController extends Controller
         }
 
         $pdf = PDF::loadView('reports.pdf',compact('data'))
+                    ->setPaper('a4')
                     ->setOption('enable-javascript',true)
                     ->setOption('javascript-delay',1500)
                     ->setOption('enable-smart-shrinking', true)
