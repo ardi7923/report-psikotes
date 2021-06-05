@@ -43,7 +43,7 @@ Hasil Ujian
                         <input class="school_name" type="hidden" />
                     </div>
                     <div class="col-sm-2">
-                        <button class="btn btn-danger"> <i class="fa fa-download"></i> Download </button>
+                        <button id="download-result-school" class="btn btn-danger"> <i class="fa fa-download"></i> Download </button>
                     </div>
                 </div>
 
@@ -59,9 +59,7 @@ Hasil Ujian
                         </select>
                         <input class="student_no_tes" type="hidden" />
                     </div>
-                    <div class="col-sm-2">
-                        <button class="btn btn-danger"> <i class="fa fa-download"></i> Download </button>
-                    </div>
+
                 </div>
             </div>
             <!-- end select student -->
@@ -121,14 +119,16 @@ Hasil Ujian
     $('#select_school').change(function() {
         school_name = $(".school_name").val();
         datatable("{{ url('result') }}" + "?type=school&school_name=" + school_name);
-
-        
-
     });
 
     $('#select_student').change(function() {
         q = $('.student_no_tes').val();
         datatable("{{ url('result') }}" + "?type=student&q=" + q);
+    });
+
+    $('#download-result-school').click(function(){
+        school_name = $(".school_name").val();
+        window.open("{{ url('report-result?type=multiple') }}"+"&school_name="+school_name);
     });
 
 

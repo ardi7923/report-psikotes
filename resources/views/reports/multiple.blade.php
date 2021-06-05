@@ -27,8 +27,8 @@
     </script>
 
     <script>
-        function drawGraphs() {
-            var ctx = document.getElementById("myChart").getContext('2d');
+        function drawGraphs(idName, conventional,enterprise,social,artistic,investigative,realistic) {
+            var ctx = document.getElementById(idName).getContext('2d');
             var myChart = new Chart(ctx, {
                 type: 'horizontalBar',
 
@@ -38,12 +38,14 @@
                     datasets: [{
                         label: 'Nilai',
                         data: [
-                            "{{$data->conventional}}",
-                            "{{$data->enterprise}}",
-                            "{{$data->social}}",
-                            "{{$data->artistic}}",
-                            "{{$data->investigative}}",
-                            "{{$data->realistic}}"
+
+                            parseInt(conventional),
+                            parseInt(enterprise),
+                            parseInt(social),
+                            parseInt(artistic),
+                            parseInt(investigative),
+                            parseInt(realistic),
+
                         ],
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
@@ -82,7 +84,10 @@
         }
 
         window.onload = function() {
-            drawGraphs();
+            @foreach ($datas as $i => $d )
+                drawGraphs("myChart-{{$i}}", "{{ $d->conventional }}","{{ $d->enterprise }}","{{ $d->social }}","{{ $d->artistic }}","{{ $d->investigative }}","{{ $d->realistic }}"); 
+            @endforeach
+            
         };
     </script>
 
@@ -218,6 +223,9 @@
 </head>
 
 <body>
+    @foreach ($datas as $i => $d)
+
+
     <div class="container-fluid" style='margin: 0 50px 10px 50px ;background-color:white;'>
         <div class="page">
 
@@ -238,40 +246,40 @@
                         </tr>
                         <tr>
                             <td rowspan="5" style="padding-left: 15px;">
-                                <div style="text-align:left;color:#0080b3;font-weight:bold; width:200px; margin-bottom:5px; vertical-align: top;"> {{ $data->nama }} </div>
-                                <div style="text-align:left;color:#0080b3;font-weight:bold; width:200px;margin-bottom:5px; vertical-align: top;"> {{ $data->jenis_kelamin }} </div>
-                                <div style="text-align:left;color:#0080b3;font-weight:bold; width:200px; vertical-align: top;"> {{ $data->umur }} Tahun </div>
+                                <div style="text-align:left;color:#0080b3;font-weight:bold; width:200px; margin-bottom:5px; vertical-align: top;"> {{ $d->nama }} </div>
+                                <div style="text-align:left;color:#0080b3;font-weight:bold; width:200px;margin-bottom:5px; vertical-align: top;"> {{ $d->jenis_kelamin }} </div>
+                                <div style="text-align:left;color:#0080b3;font-weight:bold; width:200px; vertical-align: top;"> {{ $d->umur }} Tahun </div>
                             </td>
                         </tr>
 
                         <tr class="color-blue">
                             <td></td>
                             <td>Tanggal Lahir</td>
-                            <td>: {{ $data->tanggal_lahir }} </td>
+                            <td>: {{ $d->tanggal_lahir }} </td>
                         </tr>
                         <tr class="color-blue">
 
                             <td></td>
                             <td>Tanggal Tes </td>
-                            <td>: {{ $data->tanggal_tes }} </td>
+                            <td>: {{ $d->tanggal_tes }} </td>
                         </tr>
                         <tr class="color-blue">
                             <td></td>
                             <td style="width: 150px;">Sekolah</td>
-                            <td style="width: 250px;">: {{ $data->sekolah }} </td>
+                            <td style="width: 250px;">: {{ $d->sekolah }} </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <h5 style="padding:5px;background-color:#0e81c4;color:white;width:408px; margin-top: -10px;">IQ = {{ $data->iq }} ({{ iq_description($data->iq) }} menurut IST)
+            <h5 style="padding:5px;background-color:#0e81c4;color:white;width:408px; margin-top: -10px;">IQ = {{ $d->iq }} ({{ iq_description($d->iq) }} menurut IST)
             </h5>
             <img src="{{ (asset('assets-report/judul.jpg'))}}" width="300px" style="margin-top: -20px; margin-bottom: -15px">
 
             @include('reports.widget-kemampuanumum',[
             'image' => "1.jpg",
             'title' => "KEMAMPUAN UMUM",
-            'score' => "$data->k_umum",
+            'score' => "$d->k_umum",
             'color_title' => "a5bd07",
             'description' => "Cukup mampu untuk melihat bagian-bagian dari satu benda, gambar dan grafik, membuat
             perbandingan dan perbedaan secara visual dan membuat perbedaan yang nyata pada bentuk atau
@@ -281,7 +289,7 @@
             @include('reports.widget-kemampuanumum',[
             'image' => "2.jpg",
             'title' => "PEMAHAMAN SOSIAL",
-            'score' => "$data->k_sosial",
+            'score' => "$d->k_sosial",
             'color_title' => "e79b2b",
             ])
 
@@ -290,7 +298,7 @@
             'image' => "3.jpg",
             'title' => "KEMAMPUAN VERBAL",
             'color_title' => "cb2f30",
-            'score' => "$data->k_verbal",
+            'score' => "$d->k_verbal",
             ])
             <!-- KEMAMPUAN VERBAL -->
 
@@ -299,7 +307,7 @@
             'image' => "4.jpg",
             'title' => "KEMAMPUAN BERHITUNG",
             'color_title' => "2f9bcc",
-            'score' => "$data->k_berhitung",
+            'score' => "$d->k_berhitung",
             ])
             <!--  END KEMAMPUAN BERHITUNG -->
 
@@ -309,7 +317,7 @@
             'image' => "5.jpg",
             'title' => "KEMAMPUAN ANALISIS SINTESIS",
             'color_title' => "ad30cc",
-            'score' => "$data->k_analisis"
+            'score' => "$d->k_analisis"
             ])
             <!--  KEMAMPUAN ANALISIS SINTESIS -->
 
@@ -318,7 +326,7 @@
             'image' => "6.jpg",
             'title' => "KEMAMPUAN SPASIAL (PANDANG RUANG)",
             'color_title' => "cd2f6c",
-            'score' => "$data->k_spasial"
+            'score' => "$d->k_spasial"
             ])
             <!--  END KEMAMPUAN SPASIAL -->
 
@@ -327,7 +335,7 @@
             'image' => "7.jpg",
             'title' => "PERSEPSI BENTUK",
             'color_title' => "b3c728",
-            'score' => "$data->persepsi_bentuk"
+            'score' => "$d->persepsi_bentuk"
             ])
             <!--  END PERSEPSI BENTUK -->
 
@@ -336,7 +344,7 @@
             'image' => "8.jpg",
             'title' => "KEMAMPUAN PENALARAN / ANALISIS LOGIS",
             'color_title' => "db8e1b",
-            'score' => "$data->k_penalaran"
+            'score' => "$d->k_penalaran"
             ])
             <!--  END KEMAMPUAN PENALARAN / ANALISIS LOGIS -->
 
@@ -351,7 +359,7 @@
             'image' => "9.jpg",
             'title' => "KONSENTRASI",
             'color_title' => "cb2f30",
-            'score' => "$data->konsentrasi"
+            'score' => "$d->konsentrasi"
             ])
             <!--  END KONSENTRASI -->
 
@@ -360,7 +368,7 @@
             'image' => "10.jpg",
             'title' => "DAYA INGAT",
             'color_title' => "2f9bcc",
-            'score' => "$data->daya_ingat"
+            'score' => "$d->daya_ingat"
             ])
             <!--  END DAYA INGAT -->
 
@@ -369,7 +377,7 @@
             'image' => "11.jpg",
             'title' => "KEMAMPUAN UNTUK MEMAHAMI MASALAH",
             'color_title' => "ad30cc",
-            'score' => "$data->k_memahami_masalah"
+            'score' => "$d->k_memahami_masalah"
             ])
             <!--  END  KEMAMPUAN UNTUK MEMAHAMI MASALAH -->
 
@@ -378,13 +386,13 @@
                 <tr>
                     <td>
                         <div style="height: 230px; background-color: #CA402F; width: 164px;">
-                            <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-bar-chart-line-fill" viewBox="0 0 16 16" style="height: 150px; width: 90px; color:white;display: block;margin-left: auto;margin-right: auto;">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bar-chart-line-fill" viewBox="0 0 16 16" style="height: 150px; width: 90px; color:white;display: block;margin-left: auto;margin-right: auto;">
                                 <path d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2z" />
                             </svg>
                             <div class="text-center text-bold" style="color: white;">
                                 Grafik Orientasi <br>
                                 Minat Studi <br>
-                                {{ $data->nama }} 
+                                {{ $d->nama }}
                             </div>
                         </div>
 
@@ -396,7 +404,7 @@
 
                             <div style="color:white;font-size:18px">
                             </div>
-                            <canvas id="myChart" height="200px" width="557px" style="padding-right:15px;color:green"></canvas>
+                            <canvas id="myChart-{{ $i }}" height="200px" width="557px" style="padding-right:15px;color:green"></canvas>
                             <center>Sumbu X:Skor &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sumbu Y:Minat Kerja/Studi</center>
                         </div>
                     </td>
@@ -414,13 +422,13 @@
                 </tr>
                 <tr>
                     <td style='background-color:#007c94'>Minat Studi</td>
-                    <td style='background-color:#007c94'>{{ minat_studi($data)[0]['name'] }}</td>
-                    <td style='background-color:#4ecad6; width: 20px;'>{{ $data->tertinggi }}</td>
-                    <td style='background-color:#007c94'>{{ minat_studi($data)[1]['name'] }}</td>
-                    <td style='background-color:#4ecad6;  width: 20px;'>{{ $data->kedua }}</td>
-                    <td style='background-color:#007c94'>{{ minat_studi($data)[2]['name'] }}</td>
-                    <td style='background-color:#4ecad6;  width: 20px;'>{{ $data->ketiga }}</td>
-                    <td style='background-color:#007c94'>{{ $data->kecenderungan }}</td>
+                    <td style='background-color:#007c94'>{{ minat_studi($d)[0]['name'] }}</td>
+                    <td style='background-color:#4ecad6; width: 20px;'>{{ $d->tertinggi }}</td>
+                    <td style='background-color:#007c94'>{{ minat_studi($d)[1]['name'] }}</td>
+                    <td style='background-color:#4ecad6;  width: 20px;'>{{ $d->kedua }}</td>
+                    <td style='background-color:#007c94'>{{ minat_studi($d)[2]['name'] }}</td>
+                    <td style='background-color:#4ecad6;  width: 20px;'>{{ $d->ketiga }}</td>
+                    <td style='background-color:#007c94'>{{ $d->kecenderungan }}</td>
                 </tr>
             </table>
 
@@ -438,22 +446,22 @@
                 </thead>
                 <tbody style='background-color:#21a5ff;color:black; border-collapse: collapse;'>
                     <tr>
-                        <td align='center'>{{ $data->orientasisatu }} <br>
-                            {{ round($data->orientasisatupersen) }}%
+                        <td align='center'>{{ $d->orientasisatu }} <br>
+                            {{ round($d->orientasisatupersen) }}%
                         </td>
-                        <td style="text-align: justify; font-size: 11;">{{ $data->karakteristiksatu }} </td>
+                        <td style="text-align: justify; font-size: 11;">{{ $d->karakteristiksatu }} </td>
                     </tr>
                     <tr>
-                        <td align='center'>{{ $data->orientasidua }} <br>
-                            {{ round($data->orientasiduapersen) }}%
+                        <td align='center'>{{ $d->orientasidua }} <br>
+                            {{ round($d->orientasiduapersen) }}%
                         </td>
-                        <td style="text-align: justify; font-size: 11;">{{ $data->karakteristikdua }} </td>
+                        <td style="text-align: justify; font-size: 11;">{{ $d->karakteristikdua }} </td>
                     </tr>
                     <tr>
-                        <td align='center'>{{ $data->orientasitiga }} <br>
-                            {{ round($data->orientasitigapersen) }}%
+                        <td align='center'>{{ $d->orientasitiga }} <br>
+                            {{ round($d->orientasitigapersen) }}%
                         </td>
-                        <td style="text-align: justify; font-size: 11;">{{ $data->karakteristiktiga }} </td>
+                        <td style="text-align: justify; font-size: 11;">{{ $d->karakteristiktiga }} </td>
                     </tr>
 
 
@@ -467,11 +475,11 @@
                 </tr>
                 <tr>
                     <td class=" text-center text-bold"> Rekomendasi 1</td>
-                    <td class="pl-10 text-bold" style="width: 550px"> {{ $data->rekom1 }} </td>
+                    <td class="pl-10 text-bold" style="width: 550px"> {{ $d->rekom1 }} </td>
                 </tr>
                 <tr>
                     <td class="text-center text-bold"> Rekomendasi 2</td>
-                    <td class="pl-10 text-bold"> {{ $data->rekom2 }} </td>
+                    <td class="pl-10 text-bold"> {{ $d->rekom2 }} </td>
                 </tr>
             </table>
 
@@ -489,9 +497,9 @@
                     </tr>
                     <tr>
                         <th style="padding-top: 100px;">
-                            {{ $data->pemeriksa }}
+                            {{ $d->pemeriksa }}
                             <br>
-                            {{ $data->id_pemeriksa }}
+                            {{ $d->id_pemeriksa }}
 
                         </th>
                         <th style="padding-top: 100px;">
@@ -507,6 +515,7 @@
         </div>
 
     </div>
+    @endforeach
 </body>
 
 </html>
