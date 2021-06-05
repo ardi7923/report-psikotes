@@ -20,36 +20,37 @@ class ReportResultController extends Controller
                 ->setOption('enable-smart-shrinking', true)
                 ->setOption('no-stop-slow-scripts', true)
                 ->setWarnings(true);
-            return $pdf->download('Hasil Ujian ' . $data->nama . '.pdf');
+            return $pdf->download('Hasil Ujian '.$data->nama.'.pdf');
         } else if ($request->type == 'multiple') {
-            $datasGet = Result::where('sekolah', $request->school_name)->get();
 
-            if (count($datasGet) > 100) {
+            if(!$request->limit){
 
+                $dataCount = Result::where('sekolah',$request->school_name)->count();
                 
-                $part = round(count($datasGet) / 100);
-                $html = '';
-                
-                for ($i = 0; $i < $part; $i++) {
-                    
-                    $offset  = $i * 100;
+                if($dataCount > 100){
 
-                    $datas = Result::where('sekolah', $request->school_name)->limit(100)->offset($offset)->get();
-
-                    $html .= view('reports.multiple', compact('datas'))->render();
-                   
+                    $part = round($dataCount / 100);
+                    $offset = 0; 
+                    for($i=0; $i < $part; $i++){
+                        $offset += 100;
+                        $url = env('APP_URL').'/report-result?type=multiple&school_name='.$request->school_name.'&limit=100&offset='.$offset;
+                        echo  "<script>window.open('". $url ."')</script>";
+                    }
                 }
 
-                $pdf = PDF::loadHTML($html);
-                return $pdf->download('Hasil Ujian ' . $request->school_name . '.pdf');
-            }
-       
+            }else{
+                $datas = Result::where('sekolah',$request->school_name)->limit($request->limit)->offset($request->offset)->get();
+                $pdf = PDF::loadView('reports.multiple', compact('datas'))
+                ->setOption('enable-javascript', true)
+                ->setOption('javascript-delay', 1500)
+                ->setOption('enable-smart-shrinking', true)
+                ->setOption('no-stop-slow-scripts', true)
+                ->setWarnings(true);
+
+                return $pdf->download('Hasil Ujian '.$request->school_name.'.pdf');
+            }   
+
+            
         }
-
-
-
-
-
-        // return view( 'reports.pdf');
     }
 }
