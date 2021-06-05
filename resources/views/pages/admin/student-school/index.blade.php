@@ -24,7 +24,7 @@ Download Hasil Ujian
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <a href="" >
+            <a href="{{ url('report-result?type=multiple&school_name='.Auth::user()->school->name) }}" target="_blank">
                 <button class="btn btn-danger" > <i class="fa fa-file-pdf"></i> Download Semua</button>
             </a>
             <br><br>
