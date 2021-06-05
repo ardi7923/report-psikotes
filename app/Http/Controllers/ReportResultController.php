@@ -20,17 +20,30 @@ class ReportResultController extends Controller
                 ->setOption('enable-smart-shrinking', true)
                 ->setOption('no-stop-slow-scripts', true)
                 ->setWarnings(true);
-            return $pdf->download('Hasil Ujian '.$data->nama.'.pdf');
+            return $pdf->download('Hasil Ujian ' . $data->nama . '.pdf');
         } else if ($request->type == 'multiple') {
-            $datas = Result::where('sekolah', $request->school_name)->get();
+            $datasGet = Result::where('sekolah', $request->school_name)->get();
 
-            $pdf = PDF::loadView('reports.multiple', compact('datas'))
-                ->setOption('enable-javascript', true)
-                ->setOption('javascript-delay', 5000)
-                ->setOption('enable-smart-shrinking', true)
-                ->setOption('no-stop-slow-scripts', true)
-                ->setWarnings(true);
-            return $pdf->download('Hasil Ujian '.$request->school_name.'.pdf');
+            if (count($datasGet) > 100) {
+
+                
+                $part = round(count($datasGet) / 100);
+                $html = '';
+                
+                for ($i = 0; $i < $part; $i++) {
+                    
+                    $offset  = $i * 100;
+
+                    $datas = Result::where('sekolah', $request->school_name)->limit(100)->offset($offset)->get();
+
+                    $html .= view('reports.multiple', compact('datas'))->render();
+                   
+                }
+
+                $pdf = PDF::loadHTML($html);
+                return $pdf->download('Hasil Ujian ' . $request->school_name . '.pdf');
+            }
+       
         }
 
 
