@@ -20,37 +20,57 @@ class ReportResultController extends Controller
                 ->setOption('enable-smart-shrinking', true)
                 ->setOption('no-stop-slow-scripts', true)
                 ->setWarnings(true);
-            return $pdf->download('Hasil Ujian '.$data->nama.'.pdf');
+            return $pdf->download('Hasil Ujian ' . $data->nama . '.pdf');
         } else if ($request->type == 'multiple') {
 
-            if(!$request->limit){
+            if (!$request->limit) {
 
-                $dataCount = Result::where('sekolah',$request->school_name)->count();
-                
-                if($dataCount > 100){
+                $limit  = 900;
+                $offset = 0;
+                $dataCount = Result::where('sekolah', $request->school_name)->count();
 
-                    $part = round($dataCount / 100);
-                    $offset = 0; 
-                    for($i=0; $i < $part; $i++){
-                        $offset += 100;
-                        $url = env('APP_URL').'/report-result?type=multiple&school_name='.$request->school_name.'&limit=100&offset='.$offset;
-                        echo  "<script>window.open('". $url ."')</script>";
+                if ($dataCount > $limit) {
+
+                    $part = round($dataCount / $limit);
+
+                    if ($dataCount % $part) {
+                        $part += 1;
                     }
+
+                    for ($i = 0; $i < $part; $i++) {
+                        if ($i == 0) {
+                            $offset += 0;
+                        } else if ($i == 1) {
+                            $offset += $limit;
+                        } else {
+                            $offset += $limit;
+                        }
+
+                        $url = env('APP_URL') . '/report-result?type=multiple&school_name=' . $request->school_name . '&limit=' . $limit . '&offset=' . $offset;
+                        echo  "<script>window.open('" . $url . "')</script>";
+                    }
+                } else {
+                    $datas = Result::where('sekolah', $request->school_name)->limit($limit)->offset(0)->get();
+                    $pdf = PDF::loadView('reports.multiple', compact('datas'))
+                        ->setOption('enable-javascript', true)
+                        ->setOption('javascript-delay', 1500)
+                        ->setOption('enable-smart-shrinking', true)
+                        ->setOption('no-stop-slow-scripts', true)
+                        ->setWarnings(true);
+
+                    return $pdf->download('Hasil Ujian ' . $request->school_name . '.pdf');
                 }
-
-            }else{
-                $datas = Result::where('sekolah',$request->school_name)->limit($request->limit)->offset($request->offset)->get();
+            } else {
+                $datas = Result::where('sekolah', $request->school_name)->limit($request->limit)->offset($request->offset)->get();
                 $pdf = PDF::loadView('reports.multiple', compact('datas'))
-                ->setOption('enable-javascript', true)
-                ->setOption('javascript-delay', 1500)
-                ->setOption('enable-smart-shrinking', true)
-                ->setOption('no-stop-slow-scripts', true)
-                ->setWarnings(true);
+                    ->setOption('enable-javascript', true)
+                    ->setOption('javascript-delay', 1500)
+                    ->setOption('enable-smart-shrinking', true)
+                    ->setOption('no-stop-slow-scripts', true)
+                    ->setWarnings(true);
 
-                return $pdf->download('Hasil Ujian '.$request->school_name.'.pdf');
-            }   
-
-            
+                return $pdf->download('Hasil Ujian ' . $request->school_name . '.pdf');
+            }
         }
     }
 }
