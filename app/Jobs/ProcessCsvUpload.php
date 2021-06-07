@@ -38,7 +38,7 @@ class ProcessCsvUpload implements ShouldQueue
 
         foreach ($data as $row) {
             $school = School::where('name', $row[2])->count();
-
+            
             if ($school < 1) {
                 School::create([
                     'name' => $row[2]
