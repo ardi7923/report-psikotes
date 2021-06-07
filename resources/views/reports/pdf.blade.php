@@ -377,7 +377,7 @@
             <table style="margin-bottom: 10px; margin-left: -5px;">
                 <tr>
                     <td>
-                        <div style="height: 215px; background-color: #CA402F; width: 164px;">
+                        <div style="height: 230px; background-color: #CA402F; width: 164px;">
                             <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-bar-chart-line-fill" viewBox="0 0 16 16" style="height: 150px; width: 90px; color:white;display: block;margin-left: auto;margin-right: auto;">
                                 <path d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2z" />
                             </svg>
@@ -396,7 +396,7 @@
 
                             <div style="color:white;font-size:18px">
                             </div>
-                            <canvas id="myChart" height="185px" width="557px" style="padding-right:15px;color:green"></canvas>
+                            <canvas id="myChart" height="200px" width="557px" style="padding-right:15px;color:green"></canvas>
                             <center>Sumbu X:Skor &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sumbu Y:Minat Kerja/Studi</center>
                         </div>
                     </td>

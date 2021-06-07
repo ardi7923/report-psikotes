@@ -58,6 +58,8 @@ class ReportResultController extends Controller
                         ->setOption('javascript-delay', 1500)
                         ->setOption('enable-smart-shrinking', true)
                         ->setOption('no-stop-slow-scripts', true)
+                        ->setOption('page-width', '210')
+                        ->setOption('page-height', '320')
                         ->setWarnings(true);
 
                     return $pdf->download('Hasil Ujian ' . $request->school_name . '.pdf');
@@ -69,6 +71,8 @@ class ReportResultController extends Controller
                     ->setOption('javascript-delay', 1500)
                     ->setOption('enable-smart-shrinking', true)
                     ->setOption('no-stop-slow-scripts', true)
+                    ->setOption('page-width', '210')
+                    ->setOption('page-height', '320')
                     ->setWarnings(true);
 
                 return $pdf->download('Hasil Ujian ' . $request->school_name . '.pdf');
