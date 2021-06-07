@@ -45,9 +45,8 @@ class ProcessCsvUpload implements ShouldQueue
                 ]);
             }
             if (Result::where('no_tes', $row[1])->count() == 0) {
-                Result::updateOrCreate([
-                    'no_tes' => $row[1]
-                ], [
+                Result::create([
+
                     'no_tes'              => $row[1],
                     'nama'                => $row[0],
                     'sekolah'             => $row[2],
