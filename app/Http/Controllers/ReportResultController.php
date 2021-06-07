@@ -22,7 +22,8 @@ class ReportResultController extends Controller
                 ->setOption('page-width', '210')
                 ->setOption('page-height', '320')
                 ->setWarnings(true);
-            return $pdf->stream('Hasil Ujian ' . $data->nama . '.pdf');
+                
+            return $pdf->download('Hasil Ujian ' . $data->nama . '.pdf');
         } else if ($request->type == 'multiple') {
 
             if (!$request->limit) {
