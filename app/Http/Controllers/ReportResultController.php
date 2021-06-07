@@ -19,6 +19,8 @@ class ReportResultController extends Controller
                 ->setOption('javascript-delay', 1500)
                 ->setOption('enable-smart-shrinking', true)
                 ->setOption('no-stop-slow-scripts', true)
+                ->setOption('page-width', '210')
+                ->setOption('page-height', '320')
                 ->setWarnings(true);
             return $pdf->stream('Hasil Ujian ' . $data->nama . '.pdf');
         } else if ($request->type == 'multiple') {
