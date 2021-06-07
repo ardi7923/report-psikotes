@@ -432,8 +432,6 @@
                 </tr>
             </table>
 
-        </div>
-        <div class="page">
             <br>
             <span style="color: black;">Penjelasan :</span>
             <br>
