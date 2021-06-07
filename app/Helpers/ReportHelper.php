@@ -393,3 +393,55 @@ if (!function_exists('description_kemampuan_memahami_masalah')) {
         }
     }
 }
+
+if (!function_exists('orientasi_description')) {
+    function orientasi_description($score)
+    {
+        switch ($score) {
+            case 'R' :
+                return "Menyukai aktifitas yg lebih banyak 'Mengerjakan' drpd  aktifitas yg banyak 'Memikirkan' , Lebih suka bekerja dengan benda atau peralatan konkrit (mesin, perkakas, alat kerja dlsb) atau hewan daripada dgn orang. , Menyukai pekerjaan yg bersifat praktis dan menggunakan tangan scr langsung (aktifitas manual). , Cenderung menyukai situasi kerja individual (Autonomous or solitary situations) , dan Cenderung memiliki kemauan yg kuat, akurat , dan metodik.";
+                break;
+            case 'I' :
+                return "Biasanya kreatif dan banyak akal, cerdik. Menyukai bekerja dengan ide-ide, dan penggunaan pengetahuan (intelek atau teoritis) drpd bekerja dgn benda atau orang.  Terlihat analitis, menyukai aktifitas dalam bidang sains dan penelitian. Suka mencari tahu asal muasal sesuatu dengan menggunakan metode ilmiah atau pendekatan matematis. Cenderung hati-hati, kritis, mandiri, akurat, rasional, dan intelektual.";
+                break;
+            case 'A' : 
+                return "Cenderung memiliki daya imajinasi yg kuat dan mampu mengekspresikan suatu pandangan atau pendapat menjadi bentuk/produk kreatif. Kurang sistematis dalam bekerja, cenderung menunjukkan perilaku yg ekspresif atau aktifitas kreatif yg melibatkan ekspresi. Kadang terlihat eksentrik (nyeleneh) dalam interaksinya dengan lingkungan.  Menghargai usaha-usaha yg bersifat inovatif dan estetik, gagasan-gagasan “aneh’ atau tidak lazim, keaslian, dan imajinasi.  Biasanya digambarkan sebagai imajinatif, original, intuitif, mandiri, penuh semangat, tidak konvensional (nyeleneh) dan penih idealisme.";
+                break;
+            case 'S' :
+                return "Lebih menyukai bekerja dengan orang drpd dgn benda seperti aktifitas : menginformasikan sesuatu, membimbing, melatih, dan berinteraksi dengan orang lain.  Berjiwa sosial (senang membantu), suka bekerjasama, dan penuh etika.  Berminat dengan orang dan masalah-masalah mereka, senang mencari tahu sebab-sebab orang berperilaku, pola-pola budaya, gaya hidup.  Biasanya digambarkan sebagai : bersahabat, senang berkawan dan bekerjasama dengan orang lain, murah hati (dermawan). Biasanya digambarkan sebagai : penuh pemikiran, empatik, idealistic, bertanggung jawab, dan peduli dengan kesulitan orang lain.";
+                break;
+            case 'E' :
+                return "Menyukai aktifitas mengatur atau mengelola sesuatu sehingga menghasilkan suatu keuntungan atau perolehan ekonomi.  Senang mempengaruhi dan membujuk orang lain untuk mencapai suatu tujuan.  Menyukai tantangan (biasanya dalam bidang politik, ekonomi), senang bersaing-saingan, berani mengambil risiko. Biasanya digambarkan sebagai pribadi yg : ambisius, berpengaruh, senang mendominasi, enerjik, ekstrovert, optimis,  Biasanya digambarkan sebagai pribadi yg : menyukai popularitas, percaya diri tinggi, banyak bicara dan senang berkawan.";
+                break;
+            case 'C' :
+                return "Menyukai aktifitas yg melibatkan perencanaan dan pengaturan data atau benda sehingga rapi dengan pendekatan yag teratur , baik dlm konteks pribadi atau untuk memenuhi target pekerjaan. Menyukai ketepatan informasi, keteraturan, dan prestasi dalam bidang usaha.  Biasanya digambarkan sebagai pribadi yang : patuh, taat aturan, setia, praktis, hati-hati, penuh pertimbangan, efisien, rapi dan teratur, tekun dan cermat.";
+                break;
+        }
+    }
+}
+
+if (!function_exists('orientasi_title')) {
+    function orientasi_title($score)
+    {
+        switch ($score) {
+            case 'R' :
+                return "Realistic";
+                break;
+            case 'I' :
+                return "Iventigative";
+                break;
+            case 'A' : 
+                return "Artistic";
+                break;
+            case 'S' :
+                return "Social";
+                break;
+            case 'E' :
+                return "Enterprise";
+                break;
+            case 'C' :
+                return "Conventional";
+                break;
+        }
+    }
+}

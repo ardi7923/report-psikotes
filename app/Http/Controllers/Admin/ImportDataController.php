@@ -22,6 +22,7 @@ class ImportDataController extends Controller
 
         $file  = file($request->file_import->getRealPath());
         $data  = array_slice($file,1);
+   
         $parts = (array_chunk($data,500));
 
         foreach($parts as $i => $part){

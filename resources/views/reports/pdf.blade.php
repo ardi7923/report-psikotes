@@ -240,7 +240,7 @@
                             <td rowspan="5" style="padding-left: 15px;">
                                 <div style="text-align:left;color:#0080b3;font-weight:bold; width:200px; margin-bottom:5px; vertical-align: top;"> {{ $data->nama }} </div>
                                 <div style="text-align:left;color:#0080b3;font-weight:bold; width:200px;margin-bottom:5px; vertical-align: top;"> {{ $data->jenis_kelamin }} </div>
-                                <div style="text-align:left;color:#0080b3;font-weight:bold; width:200px; vertical-align: top;"> {{ $data->umur }} Tahun </div>
+                                <div style="text-align:left;color:#0080b3;font-weight:bold; width:200px; vertical-align: top;"> @if($data->umur) {{ $data->umur }} Tahun @endif</div>
                             </td>
                         </tr>
 
@@ -438,22 +438,22 @@
                 </thead>
                 <tbody style='background-color:#21a5ff;color:black; border-collapse: collapse;'>
                     <tr>
-                        <td align='center'>{{ $data->orientasisatu }} <br>
+                        <td align='center'>{{ orientasi_title($data->tertinggi) }} <br>
                             {{ round($data->orientasisatupersen) }}%
                         </td>
-                        <td style="text-align: justify; font-size: 11;">{{ $data->karakteristiksatu }} </td>
+                        <td style="text-align: justify; font-size: 11;">{{ orientasi_description($data->tertinggi) }} </td>
                     </tr>
                     <tr>
-                        <td align='center'>{{ $data->orientasidua }} <br>
+                        <td align='center'>{{ orientasi_title($data->kedua) }} <br>
                             {{ round($data->orientasiduapersen) }}%
                         </td>
-                        <td style="text-align: justify; font-size: 11;">{{ $data->karakteristikdua }} </td>
+                        <td style="text-align: justify; font-size: 11;">{{ orientasi_description($data->kedua) }} </td>
                     </tr>
                     <tr>
-                        <td align='center'>{{ $data->orientasitiga }} <br>
+                        <td align='center'>{{ orientasi_title($data->ketiga) }} <br>
                             {{ round($data->orientasitigapersen) }}%
                         </td>
-                        <td style="text-align: justify; font-size: 11;">{{ $data->karakteristiktiga }} </td>
+                        <td style="text-align: justify; font-size: 11;">{{ orientasi_description($data->ketiga) }} </td>
                     </tr>
 
 
@@ -491,7 +491,7 @@
                         <th style="padding-top: 100px;">
                             {{ $data->pemeriksa }}
                             <br>
-                            {{ $data->id_pemeriksa }}
+                            SIPP : {{ $data->id_pemeriksa }}
 
                         </th>
                         <th style="padding-top: 100px;">

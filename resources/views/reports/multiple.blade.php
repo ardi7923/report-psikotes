@@ -27,7 +27,7 @@
     </script>
 
     <script>
-        function drawGraphs(idName, conventional,enterprise,social,artistic,investigative,realistic) {
+        function drawGraphs(idName, conventional, enterprise, social, artistic, investigative, realistic) {
             var ctx = document.getElementById(idName).getContext('2d');
             var myChart = new Chart(ctx, {
                 type: 'horizontalBar',
@@ -84,10 +84,10 @@
         }
 
         window.onload = function() {
-            @foreach ($datas as $i => $d )
-                drawGraphs("myChart-{{$i}}", "{{ $d->conventional }}","{{ $d->enterprise }}","{{ $d->social }}","{{ $d->artistic }}","{{ $d->investigative }}","{{ $d->realistic }}"); 
+            @foreach($datas as $i => $d)
+            drawGraphs("myChart-{{$i}}", "{{ $d->conventional }}", "{{ $d->enterprise }}", "{{ $d->social }}", "{{ $d->artistic }}", "{{ $d->investigative }}", "{{ $d->realistic }}");
             @endforeach
-            
+
         };
     </script>
 
@@ -248,7 +248,7 @@
                             <td rowspan="5" style="padding-left: 15px;">
                                 <div style="text-align:left;color:#0080b3;font-weight:bold; width:200px; margin-bottom:5px; vertical-align: top;"> {{ $d->nama }} </div>
                                 <div style="text-align:left;color:#0080b3;font-weight:bold; width:200px;margin-bottom:5px; vertical-align: top;"> {{ $d->jenis_kelamin }} </div>
-                                <div style="text-align:left;color:#0080b3;font-weight:bold; width:200px; vertical-align: top;"> {{ $d->umur }} Tahun </div>
+                                <div style="text-align:left;color:#0080b3;font-weight:bold; width:200px; vertical-align: top;"> @if($d->umur) {{ $d->umur }} Tahun @endif </div>
                             </td>
                         </tr>
 
@@ -446,22 +446,22 @@
                 </thead>
                 <tbody style='background-color:#21a5ff;color:black; border-collapse: collapse;'>
                     <tr>
-                        <td align='center'>{{ $d->orientasisatu }} <br>
+                        <td align='center'>{{ orientasi_title($d->tertinggi) }} <br>
                             {{ round($d->orientasisatupersen) }}%
                         </td>
-                        <td style="text-align: justify; font-size: 11;">{{ $d->karakteristiksatu }} </td>
+                        <td style="text-align: justify; font-size: 11;">{{ orientasi_description($d->tertinggi) }} </td>
                     </tr>
                     <tr>
-                        <td align='center'>{{ $d->orientasidua }} <br>
+                        <td align='center'>{{ orientasi_title($d->kedua) }} <br>
                             {{ round($d->orientasiduapersen) }}%
                         </td>
-                        <td style="text-align: justify; font-size: 11;">{{ $d->karakteristikdua }} </td>
+                        <td style="text-align: justify; font-size: 11;">{{ orientasi_description($d->kedua) }} </td>
                     </tr>
                     <tr>
-                        <td align='center'>{{ $d->orientasitiga }} <br>
+                        <td align='center'>{{ orientasi_title($d->ketiga) }} <br>
                             {{ round($d->orientasitigapersen) }}%
                         </td>
-                        <td style="text-align: justify; font-size: 11;">{{ $d->karakteristiktiga }} </td>
+                        <td style="text-align: justify; font-size: 11;">{{ orientasi_description($d->ketiga) }} </td>
                     </tr>
 
 
@@ -499,7 +499,7 @@
                         <th style="padding-top: 100px;">
                             {{ $d->pemeriksa }}
                             <br>
-                            {{ $d->id_pemeriksa }}
+                            SIPP : {{ $d->id_pemeriksa }}
 
                         </th>
                         <th style="padding-top: 100px;">

@@ -9,7 +9,7 @@ class DownloadExampleExcelController extends Controller
 {
     public function download()
     {
-        $file= public_path(). "/example-data-import.csv";
+        $file= storage_path(). "/example-data-import.csv";
 
         $headers = array(
                   'Content-Type: application/pdf',
