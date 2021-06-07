@@ -423,9 +423,6 @@
                     <td style='background-color:#007c94'>{{ $data->kecenderungan }}</td>
                 </tr>
             </table>
-
-        </div>
-        <div class="page">
             <br>
             <span style="color: black;">Penjelasan :</span>
             <br>
