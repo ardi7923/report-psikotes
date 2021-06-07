@@ -221,7 +221,7 @@
     <div class="container-fluid" style='margin: 0 50px 10px 50px ;background-color:white;'>
         <div class="page">
 
-            <center><img src="{{ asset(company_get('logo')) }}" width="400px" height="80px"></center><br>
+            <center><img src="{{ asset(company_get('logo')) }}" width="200px" height="60px"></center><br>
             <center>
                 <h1 class="color-blue" style="margin-top: -5px;"> <strong> PEMERIKSAAN PSIKOLOGIS</strong></h1>
             </center>
@@ -473,7 +473,7 @@
                 </tr>
             </table>
 
-            <table style="width: 100%; margin-top: 40px;">
+            <table style="width: 100%; margin-top: 40px;" >
 
                 <thead>
                     <tr>
@@ -486,14 +486,19 @@
                         </th>
                     </tr>
                     <tr>
-                        <th style="padding-top: 100px;">
-                            {{ $data->pemeriksa }}
+                        <th>
+                            <center> <img width="250px" height="250px" src="{{ asset(company_get('ttd_psikolog')) }}" alt="" style="margin-top: -50px;"> </center>
+                           <div class="text-bold text-center" style="margin-top: -60px;">
+                            {{ company_get('psikolog') }}
                             <br>
-                            SIPP : {{ $data->id_pemeriksa }}
-
+                            SIPP : {{ company_get('sipp_psikolog') }}
+                           </div>
                         </th>
-                        <th style="padding-top: 100px;">
+                        <th>
+                            <center> <img width="250px" height="250px" src="{{ asset(company_get('ttd_director')) }}" alt="" style="margin-top: -50px;"> </center>
+                           <div class="text-bold text-center" style="margin-top: -60px;">
                             {{ company_get('director') }}
+                           </div>
                         </th>
                     </tr>
                 </thead>
