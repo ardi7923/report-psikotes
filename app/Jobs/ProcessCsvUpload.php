@@ -34,18 +34,17 @@ class ProcessCsvUpload implements ShouldQueue
      */
     public function handle()
     {
-            // Handle job...
-            $data = array_map('str_getcsv', file($this->file));
+        $data = array_map('str_getcsv', file($this->file));
 
-            foreach ($data as $row) {
-                $school = School::where('name',$row[2])->count();
+        foreach ($data as $row) {
+            $school = School::where('name', $row[2])->count();
 
-                if($school < 1){
-                    School::create([
-                        'name' => $row[2]
-                    ]);
-                }
-
+            if ($school < 1) {
+                School::create([
+                    'name' => $row[2]
+                ]);
+            }
+            if (Result::where('no_tes', $row[1])->count() == 0) {
                 Result::updateOrCreate([
                     'no_tes' => $row[1]
                 ], [
@@ -87,7 +86,8 @@ class ProcessCsvUpload implements ShouldQueue
                     'id_pemeriksa'        => $row[35]
                 ]);
             }
-            info('done upload file:--'.$this->file);
-            unlink($this->file);
+        }
+        info('done upload file:--' . $this->file);
+        unlink($this->file);
     }
 }

@@ -17,6 +17,7 @@ class Result extends Model
         $path = storage_path('pending-files/*.csv');
 
         $files = glob($path);
+        
 
         foreach ($files as $file) {
            ProcessCsvUpload::dispatch($file);
