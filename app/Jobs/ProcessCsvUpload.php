@@ -84,7 +84,7 @@ class ProcessCsvUpload implements ShouldQueue
                     'rekom1'              => $row[32],
                     'rekom2'              => $row[33],
                     'pemeriksa'           => $row[34],
-                    'id_pemeriksa'        => $row[35],
+                    'id_pemeriksa'        => $row[35]
                 ]);
             }
             info('done upload file:--'.$this->file);
