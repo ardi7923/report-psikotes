@@ -231,7 +231,7 @@
                     <tbody>
 
                         <tr>
-                            <td rowspan="5" width="200px">
+                            <td rowspan="5" width="150px">
                                 <div style="text-align:center;text-align:right"><img src="{{ asset('assets-report/nama.png') }}" width="90px"></div>
                             </td>
 
@@ -258,7 +258,7 @@
                         <tr class="color-blue">
                             <td></td>
                             <td style="width: 150px;">Sekolah</td>
-                            <td style="width: 250px;">: {{ $data->sekolah }} </td>
+                            <td style="width: 550px;">: {{ $data->sekolah }} </td>
                         </tr>
                     </tbody>
                 </table>

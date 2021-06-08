@@ -235,11 +235,11 @@
             </center>
             <hr style="color: black; border: 3px solid black; margin-top: -18px;">
             <div class="row" style="margin-bottom:20px">
-                <table>
+            <table>
                     <tbody>
 
                         <tr>
-                            <td rowspan="5" width="200px">
+                            <td rowspan="5" width="150px">
                                 <div style="text-align:center;text-align:right"><img src="{{ asset('assets-report/nama.png') }}" width="90px"></div>
                             </td>
 
@@ -248,7 +248,7 @@
                             <td rowspan="5" style="padding-left: 15px;">
                                 <div style="text-align:left;color:#0080b3;font-weight:bold; width:200px; margin-bottom:5px; vertical-align: top;"> {{ $d->nama }} </div>
                                 <div style="text-align:left;color:#0080b3;font-weight:bold; width:200px;margin-bottom:5px; vertical-align: top;"> {{ $d->jenis_kelamin }} </div>
-                                <div style="text-align:left;color:#0080b3;font-weight:bold; width:200px; vertical-align: top;"> @if($d->umur) {{ $d->umur }} Tahun @endif </div>
+                                <div style="text-align:left;color:#0080b3;font-weight:bold; width:200px; vertical-align: top;"> @if($d->umur) {{ $d->umur }} Tahun @endif</div>
                             </td>
                         </tr>
 
@@ -266,7 +266,7 @@
                         <tr class="color-blue">
                             <td></td>
                             <td style="width: 150px;">Sekolah</td>
-                            <td style="width: 250px;">: {{ $d->sekolah }} </td>
+                            <td style="width: 550px;">: {{ $d->sekolah }} </td>
                         </tr>
                     </tbody>
                 </table>
