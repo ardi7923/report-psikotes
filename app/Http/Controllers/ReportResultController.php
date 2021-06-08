@@ -29,7 +29,7 @@ class ReportResultController extends Controller
 
             if (!$request->limit) {
 
-                $limit  = 100;
+                $limit  = 400;
                 $offset = 0;
                 $dataCount = Result::where('sekolah', $request->school_name)->count();
 
