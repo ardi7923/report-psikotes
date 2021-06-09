@@ -42,9 +42,12 @@ Hasil Ujian
                         </select>
                         <input class="school_name" type="hidden" />
                     </div>
-                    <div class="col-sm-2">
-                        <button id="download-result-school" class="btn btn-danger"> <i class="fa fa-download"></i> Download </button>
+
+                    <div id="button-download" class="col-sm-5">
+                        <button id="download-result-school" class="btn btn-danger" style="margin-right: 10px;"> <i class="fa fa-download"></i> Download </button>
+                        <button id="download-excel-school" class="btn btn-success"> <i class="fa fa-file-excel"></i> Download Rekap Excel </button>
                     </div>
+
                 </div>
 
             </div>
@@ -102,6 +105,7 @@ Hasil Ujian
     $(document).ready(function() {
         $('#select_school').hide();
         $('#select_student').hide();
+        $('#button-download').hide();
     });
 
     $('#download_type').change(function() {
@@ -111,6 +115,7 @@ Hasil Ujian
             $('#select_student').slideUp();
             $('#select_school').slideDown('slow');
 
+
         } else if (value == "student") {
             select2Student("select2student", "{{ url('autocomplete/student') }}");
             $('#select_school').slideUp();
@@ -119,6 +124,7 @@ Hasil Ujian
     });
 
     $('#select_school').change(function() {
+        $('#button-download').slideDown('slow');
         school_name = $(".school_name").val();
         datatable("{{ url('result') }}" + "?type=school&school_name=" + school_name);
     });
@@ -131,6 +137,11 @@ Hasil Ujian
     $('#download-result-school').click(function() {
         school_name = $(".school_name").val();
         window.open("{{ url('report-result?type=multiple') }}" + "&school_name=" + school_name);
+    });
+
+    $('#download-excel-school').click(function() {
+        school_name = $(".school_name").val();
+        window.open("{{ url('export-excel-rekap') }}" + "?school_name=" + school_name);
     });
 
 

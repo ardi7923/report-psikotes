@@ -86,7 +86,7 @@ Dashboard
             <table class="table table-hover table-bordered table-striped">
               <thead>
                 <tr>
-                  <th width="50px"> No Tes</th>
+                  <th width="100px"> No Tes</th>
                   <th>Nama Sekolah</th>
                   <th> Nama </th>
                   <th> Tanggal Import </th>

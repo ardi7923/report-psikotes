@@ -44,6 +44,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 		Route::resource('result', 'ResultController');
 
+		Route::get('export-excel-rekap', 'ExportExcelRekapController@export');
 
 		Route::get('download-example-excel', 'DownloadExampleExcelController@download');
 
