@@ -487,16 +487,16 @@
                     </tr>
                     <tr>
                         <th>
-                            <center> <img width="250px" height="250px" src="{{ asset(company_get('ttd_psikolog')) }}" alt="" style="margin-top: -50px;"> </center>
-                           <div class="text-bold text-center" style="margin-top: -60px;">
+                            <center> <img width="200px" height="200px" src="{{ asset(company_get('ttd_psikolog')) }}" alt="" style="margin-top: -50px;"> </center>
+                           <div class="text-bold text-center" style="margin-top: -40px;">
                             {{ company_get('psikolog') }}
                             <br>
                             SIPP : {{ company_get('sipp_psikolog') }}
                            </div>
                         </th>
                         <th>
-                            <center> <img width="250px" height="250px" src="{{ asset(company_get('ttd_director')) }}" alt="" style="margin-top: -50px;"> </center>
-                           <div class="text-bold text-center" style="margin-top: -60px;">
+                            <center> <img width="200px" height="200px" src="{{ asset(company_get('ttd_director')) }}" alt="" style="margin-top: -50px;"> </center>
+                           <div class="text-bold text-center" style="margin-top: -40px;">
                             {{ company_get('director') }}
                            </div>
                         </th>
