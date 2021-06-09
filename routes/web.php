@@ -21,11 +21,6 @@ Route::get('result-public/check', 'Front\ResultPublicController@check');
 
 Route::get('report-result', 'ReportResultController@index');
 
-Route::get('tes-import',function(){
-	(new Result())->importToDb();
-	dd('done');
-});
-
 
 
 
@@ -47,7 +42,8 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('import-data', 'ImportDataController@index');
 		Route::post('import-data', 'ImportDataController@store');
 
-		Route::get('result', 'ResultController@index');
+		Route::resource('result', 'ResultController');
+
 
 		Route::get('download-example-excel', 'DownloadExampleExcelController@download');
 

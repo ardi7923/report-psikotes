@@ -81,6 +81,8 @@ Hasil Ujian
         </div>
     </div>
 </div>
+
+@include('snippets.modal')
 @endsection
 
 @section('scripts_page')
@@ -126,9 +128,9 @@ Hasil Ujian
         datatable("{{ url('result') }}" + "?type=student&q=" + q);
     });
 
-    $('#download-result-school').click(function(){
+    $('#download-result-school').click(function() {
         school_name = $(".school_name").val();
-        window.open("{{ url('report-result?type=multiple') }}"+"&school_name="+school_name);
+        window.open("{{ url('report-result?type=multiple') }}" + "&school_name=" + school_name);
     });
 
 
@@ -153,12 +155,17 @@ Hasil Ujian
                     data: 'sekolah'
                 },
                 {
-                    data: 'action',
+                    data: 'action_full',
                     orderable: false,
                     searchable: false
                 }
             ]
         });
     }
+
+    $('body').on("click", ".btn_edit", showForm);
+    $('body').on("click", ".btn_delete", deleteForm);
+
+    $('#modals').on("submit", ".forms", saveForm);
 </script>
 @endsection
