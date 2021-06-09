@@ -27,6 +27,9 @@ Download Hasil Ujian
             <a href="{{ url('report-result?type=multiple&school_name='.Auth::user()->school->name) }}" target="_blank">
                 <button class="btn btn-danger" > <i class="fa fa-file-pdf"></i> Download Semua</button>
             </a>
+            <a href="{{ url('export-excel-rekap?school_name='.Auth::user()->school->name) }}" target="_blank">
+                <button class="btn btn-success" > <i class="fa fa-file-excel"></i> Download Rekap Excel</button>
+            </a>
             <br><br>
             <table class="table table-bordered table-hover" id="myTable" width="100%" cellspacing="0">
                 <thead>
