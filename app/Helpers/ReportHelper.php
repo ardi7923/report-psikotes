@@ -160,13 +160,13 @@ if (!function_exists('descripition_pemahaman_sosial')) {
     {
         switch ($score) {
             case '1':
-                return "Sangat Kurang Mampu mampu mengungkap, memahami, dan memecahkan permasalahan-permasalahan sosial";
+                return "Sangat Kurang Mampu mengungkap, memahami, dan memecahkan permasalahan-permasalahan sosial";
                 break;
             case '2':
-                return "Kurang Mampu mampu mengungkap, memahami, dan memecahkan permasalahan-permasalahan sosial";
+                return "Kurang Mampu mengungkap, memahami, dan memecahkan permasalahan-permasalahan sosial";
                 break;
             case '3':
-                return "Cukup Mampu mampu mengungkap, memahami, dan memecahkan permasalahan-permasalahan sosial";
+                return "Cukup Mampu mengungkap, memahami, dan memecahkan permasalahan-permasalahan sosial";
                 break;
             case '4':
                 return "Mampu mengungkap, memahami, dan memecahkan permasalahan-permasalahan sosial dengan baik";
