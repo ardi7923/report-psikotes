@@ -11,7 +11,6 @@ use CrudService;
 use App\Models\User;
 use DataTables;
 use App\Services\Facades\UserSchoolFacade;
-use App\Services\MainService as ServicesMainService;
 
 class UserSchoolController extends Controller
 {

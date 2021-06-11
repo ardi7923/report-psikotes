@@ -28,6 +28,11 @@ class ResultController extends Controller
         return view('pages.admin.result.index');
     }
 
+    public function create()
+    {
+        return MainService::renderToJson('pages.admin.result.create');
+    }
+
     public function edit($id, Request $request)
     {
         $data = $this->model->find($id);

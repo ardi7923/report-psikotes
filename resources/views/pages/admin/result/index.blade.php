@@ -66,7 +66,9 @@ Hasil Ujian
                 </div>
             </div>
             <!-- end select student -->
-
+            
+            <br>
+            <button class="btn btn-primary modals" data-url="{{ url('result/create') }}" data-size="lg"> <i class="fa fa-plus"></i> Tambah</button>
             <br><br>
             <table class="table table-bordered table-hover" id="myTable" width="100%" cellspacing="0">
                 <thead>
@@ -174,6 +176,7 @@ Hasil Ujian
         });
     }
 
+    $('body').on("click", ".modals", showForm);
     $('body').on("click", ".btn_edit", showForm);
     $('body').on("click", ".btn_delete", deleteForm);
 

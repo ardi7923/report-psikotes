@@ -135,19 +135,19 @@ if (!function_exists('descripition_kemampuan_umum')) {
     {
         switch ($score) {
             case '1':
-                return "Sangat Kurang Mampu menyerap, memproses dan menggunakan kapasitas atau potensinya dalam kehidupan sehari-hari";
+                return "Sangat Kurang mampu menyerap, dan memproses suatu informasi serta menggunakan kapasitas atau potensinya dalam kehidupan sehari-hari ";
                 break;
             case '2':
-                return "Kurang menyerap, memproses dan menggunakan kapasitas atau potensinya dalam kehidupan sehari-hari";
+                return "Kurang mampu menyerap, dan memproses suatu informasi serta menggunakan kapasitas atau potensinya dalam kehidupan sehari-hari ";
                 break;
             case '3':
-                return "Cukup Mampu menyerap, memproses dan menggunakan kapasitas atau potensinya dalam kehidupan sehari-hari";
+                return "Cukup mampu menyerap, dan memproses suatu informasi serta menggunakan kapasitas atau potensinya dalam kehidupan sehari-hari ";
                 break;
             case '4':
-                return "Mampu menyerap, memproses dan menggunakan kapasitas atau potensinya dalam kehidupan sehari-hari dengan baik";
+                return "mampu menyerap, dan memproses suatu informasi serta menggunakan kapasitas atau potensinya dalam kehidupan sehari-hari dengan baik";
                 break;
             case '5':
-                return "Mampu menyerap, memproses dan menggunakan kapasitas atau potensinya dalam kehidupan sehari-hari dengan sangat baik";
+                return "Mampu menyerap, dan memproses suatu informasi serta menggunakan kapasitas atau potensinya dalam kehidupan sehari-hari  dengan sangat baik";
                 break;
         }
     }
@@ -184,19 +184,19 @@ if (!function_exists('description_kemampuan_verbal')) {
     {
         switch ($score) {
             case '1':
-                return "Sangat Kurang Mampu mengungkap, memahami, dan memecahkan permasalahan-permasalahan sosial";
+                return "Sangat Kurang Mampu menangkap dan mengekspresikan gagasan, kemampuan dan perasaan dalam bentuk bahasa";
                 break;
             case '2':
-                return "Kurang Mampu mengungkap, memahami, dan memecahkan permasalahan-permasalahan sosial";
+                return "Kurang Mampu menangkap dan mengekspresikan gagasan, kemampuan dan perasaan dalam bentuk bahasa";
                 break;
             case '3':
-                return "Cukup Kurang Mampu mengungkap, memahami, dan memecahkan permasalahan-permasalahan sosial";
+                return "Cukup Mampu menangkap dan mengekspresikan gagasan, kemampuan dan perasaan dalam bentuk bahasa";
                 break;
             case '4':
-                return "Memiliki kemampuan menganalisis informasi yang bersifat verbal dengan baik";
+                return "Memiliki kemampuan untuk menangkap dan mengekspresikan gagasan, kemampuan dan perasaan dalam bentuk bahasa dengan baik";
                 break;
             case '5':
-                return "Memiliki kemampuan menganalisis informasi yang bersifat verbal dengan sangat baik";
+                return "Memiliki kemampuan untuk menangkap dan mengekspresikan gagasan, kemampuan dan perasaan dalam bentuk bahasa dengan sangat baik";
                 break;
         }
     }
@@ -208,19 +208,19 @@ if (!function_exists('description_kemampuan_berhitung')) {
     {
         switch ($score) {
             case '1':
-                return "Sangat Kurang Mampu melakukan analisis menggunakan angka";
+                return "Sangat Kurang Mampu memecahkan masalah praktis maupun untuk menemukan hubungan informasi yang dikaitkan dengan angka";
                 break;
             case '2':
-                return "Kurang Mampu melakukan analisis menggunakan angka";
+                return "Kurang Mampu memecahkan masalah praktis maupun untuk menemukan hubungan informasi yang dikaitkan dengan angka";
                 break;
             case '3':
-                return "Cukup Mampu melakukan analisis menggunakan angka";
+                return "Cukup Mampu memecahkan masalah praktis maupun untuk menemukan hubungan informasi yang dikaitkan dengan angkaa";
                 break;
             case '4':
-                return "Mampu melakukan analisis menggunakan angka dengan baik";
+                return "Kemampuan memecahkan masalah praktis maupun untuk menemukan hubungan informasi yang dikaitkan dengan angka dengan baik";
                 break;
             case '5':
-                return "Mampu melakukan analisis menggunakan angka dengan sangat baik";
+                return "Kemampuan memecahkan masalah praktis maupun untuk menemukan hubungan informasi yang dikaitkan dengan angka sangat baik";
                 break;
         }
     }
