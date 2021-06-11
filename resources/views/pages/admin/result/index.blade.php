@@ -66,9 +66,10 @@ Hasil Ujian
                 </div>
             </div>
             <!-- end select student -->
-            
-            <br>
-            <button class="btn btn-primary modals" data-url="{{ url('result/create') }}" data-size="lg"> <i class="fa fa-plus"></i> Tambah</button>
+            <div id="button-add">
+                <br>
+                <button class="btn btn-primary modals" data-url="{{ url('result/create') }}" data-size="lg"> <i class="fa fa-plus"></i> Tambah</button>
+            </div>
             <br><br>
             <table class="table table-bordered table-hover" id="myTable" width="100%" cellspacing="0">
                 <thead>
@@ -108,6 +109,7 @@ Hasil Ujian
         $('#select_school').hide();
         $('#select_student').hide();
         $('#button-download').hide();
+        $('#button-add').hide();
     });
 
     $('#download_type').change(function() {
@@ -127,12 +129,14 @@ Hasil Ujian
 
     $('#select_school').change(function() {
         $('#button-download').slideDown('slow');
+        $('#button-add').slideDown('slow');
         school_name = $(".school_name").val();
         datatable("{{ url('result') }}" + "?type=school&school_name=" + school_name);
     });
 
     $('#select_student').change(function() {
         q = $('.student_no_tes').val();
+        $('#button-add').slideDown('slow');
         datatable("{{ url('result') }}" + "?type=student&q=" + q);
     });
 

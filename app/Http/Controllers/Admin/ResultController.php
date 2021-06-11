@@ -33,21 +33,30 @@ class ResultController extends Controller
         return MainService::renderToJson('pages.admin.result.create');
     }
 
+    public function store(Request $request,ResultRequest $validator)
+    {
+        return $this->crud_service
+            ->setModel($this->model)
+            ->setRequest($request)
+            ->setValidator($validator)
+            ->save();
+    }
+
     public function edit($id, Request $request)
     {
         $data = $this->model->find($id);
         return MainService::renderToJson('pages.admin.result.edit', compact('data'));
     }
 
-    public function update($id,Request $request,ResultRequest $validator)
+    public function update($id, Request $request, ResultRequest $validator)
     {
         $data = $this->model->find($id);
         return $this->crud_service
             ->setModel($this->model)
-            ->setRequest( $request )
-            ->setValidator( $validator )
+            ->setRequest($request)
+            ->setValidator($validator)
             ->setParams(['id' => $id])
-            ->setIdOld( $data->no_tes )
+            ->setIdOld($data->no_tes)
             ->update();
     }
 

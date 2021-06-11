@@ -9,11 +9,15 @@ class ResultRequest
 {
     public static function validation($request, $method, $id_old = "")
     {
-
+        if($method == 'store'){
+            $no_tes = ['required','unique:results,no_tes'];
+        }else{
+            $no_tes = ['required', Rule::unique('results')->ignore($id_old, 'no_tes')];
+        }
 
         $validator = Validator::make($request->all(), [
 
-            'no_tes'                       => ['required', Rule::unique('results')->ignore($id_old, 'no_tes')],
+            'no_tes'                       => $no_tes,
             'nama'                         => ['required'],
             'jenis_kelamin'       => ['required'],
             'umur'                => ['required'],
