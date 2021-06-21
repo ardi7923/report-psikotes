@@ -27,6 +27,7 @@
                     <tr>
                       <th width="50px">No</th>
                       <th >Nama Sekolah</th>
+                      <th >Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -66,6 +67,8 @@
                                 { data: 'DT_RowIndex', orderable: false, 
                     searchable: false },
                                 { data: 'name' },
+                                { data: 'action', orderable: false, 
+                    searchable: false },
                             ]
                         });
     });

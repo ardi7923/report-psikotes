@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DataTables;
 use App\Models\School;
+use App\Models\Result;
+use App\Services\CrudService;
 
 class SchoolController extends Controller
 {
@@ -16,7 +18,7 @@ class SchoolController extends Controller
      */
     public function index(Request $request)
     {
-        if($request->ajax()){
+        if ($request->ajax()) {
             return $this->datatable();
         }
 
@@ -84,9 +86,12 @@ class SchoolController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id,CrudService $crud_service,School $model)
     {
-        //
+        return $crud_service
+                    ->setModel($model)
+                    ->setParams(['id' => $id])
+                    ->delete();
     }
 
     /**
@@ -97,18 +102,23 @@ class SchoolController extends Controller
      */
     public function datatable()
     {
-        // ->addColumn('action', function ($data)  {
-        //     return view('components.datatables.action', [
-        //         'data'        => $data,
-        //         'url_edit'    => url($this->url.$data->id.'/edit'),
-        //         'url_destroy' => url($this->url.$data->id),
-        //         'delete_text' => view($this->folder.'delete',compact('data'))->render()
-        //         ]);
-        //     })
+
         $data = School::query();
 
         return DataTables::of($data)
-                        ->addIndexColumn()
-                        ->make(true);
+            ->addIndexColumn()
+            ->addColumn('action', function ($data)  {
+                    $disabled = (Result::where('sekolah',$data->name)->count() > 0) ? 'disabled' : 'btn_delete';
+
+                  return '<button class="btn btn-circle btn-sm btn-danger  '. $disabled .'" data-url='. url("school/".$data->id) .' data-text="'. $this->deleteText($data) .'" data-toggle="tooltip" title="Hapus Data">
+                  <i class="fa fa-trash"> </i>
+                </button>';
+                })
+            ->make(true);
+    }
+
+    private function deleteText($data)
+    {
+        return view('pages.admin.school.delete', compact('data'))->render();
     }
 }
