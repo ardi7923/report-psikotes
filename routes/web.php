@@ -43,6 +43,7 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::post('import-data', 'ImportDataController@store');
 
 		Route::resource('result', 'ResultController');
+		Route::delete('result-massdelete', 'ResultController@massdelete');
 
 		Route::get('export-excel-rekap', 'ExportExcelRekapController@export');
 

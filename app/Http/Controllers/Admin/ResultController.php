@@ -9,6 +9,8 @@ use DataTables;
 use CrudService;
 use MainService;
 use App\Http\Requests\ResultRequest;
+use App\Services\ResponseService;
+use App\Jobs\DeleteStudent;
 
 class ResultController extends Controller
 {
@@ -116,5 +118,20 @@ class ResultController extends Controller
     private function deleteText($data)
     {
         return view('pages.admin.result.delete', compact('data'))->render();
+    }
+
+
+    public function massdelete(Request $request,ResponseService $response)
+    {
+        $datas  = Result::where('sekolah',$request->school_name)->get();
+
+        foreach($datas as $d){
+            DeleteStudent::dispatch($d->id);
+        }
+
+        return $response->setCode(200)
+                     	 ->setMsg("Data Berhasil Masuk di Antrian")
+                     	 ->success();
+        
     }
 }

@@ -44,8 +44,9 @@ Hasil Ujian
                     </div>
 
                     <div id="button-download" class="col-sm-5">
-                        <button id="download-result-school" class="btn btn-danger" style="margin-right: 10px;"> <i class="fa fa-download"></i> Download </button>
+                        <button id="download-result-school" class="btn btn-primary"> <i class="fa fa-download"></i> Download </button>
                         <button id="download-excel-school" class="btn btn-success"> <i class="fa fa-file-excel"></i> Download Rekap Excel </button>
+                        <button id="mass-delete-result" class="btn btn-danger"> <i class="fa fa-trash"></i> Hapus </button>
                     </div>
 
                 </div>
@@ -131,6 +132,8 @@ Hasil Ujian
         $('#button-download').slideDown('slow');
         $('#button-add').slideDown('slow');
         school_name = $(".school_name").val();
+        $('#mass-delete-result').attr('data-text', "<strong> Nama Sekolah : "+ school_name+"</strong>");
+        $('#mass-delete-result').attr('data-url', "{{ url('result-massdelete?school_name=') }}"+school_name);
         datatable("{{ url('result') }}" + "?type=school&school_name=" + school_name);
     });
 
@@ -150,6 +153,8 @@ Hasil Ujian
         window.open("{{ url('export-excel-rekap') }}" + "?school_name=" + school_name);
     });
 
+
+    $('body').on("click", "#mass-delete-result", deleteForm);
 
     function datatable(url) {
         var table = $('#myTable').DataTable({
@@ -183,7 +188,8 @@ Hasil Ujian
     $('body').on("click", ".modals", showForm);
     $('body').on("click", ".btn_edit", showForm);
     $('body').on("click", ".btn_delete", deleteForm);
-
+    
+    
     $('#modals').on("submit", ".forms", saveForm);
 </script>
 @endsection
