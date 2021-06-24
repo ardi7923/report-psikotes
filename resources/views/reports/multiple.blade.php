@@ -235,7 +235,7 @@
             </center>
             <hr style="color: black; border: 3px solid black; margin-top: -18px;">
             <div class="row" style="margin-bottom:20px">
-            <table>
+                <table>
                     <tbody>
 
                         <tr>
@@ -392,7 +392,10 @@
                             <div class="text-center text-bold" style="color: white;">
                                 Grafik Orientasi <br>
                                 Minat Studi <br>
-                                {{ $d->nama }}
+                                <span style="font-size: 11;">
+                                    <br>
+                                    {{ $data->nama }}
+                                </span>
                             </div>
                         </div>
 

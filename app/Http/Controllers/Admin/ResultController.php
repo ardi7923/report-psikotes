@@ -134,4 +134,4 @@ class ResultController extends Controller
                      	 ->success();
         
     }
-}
+}   
