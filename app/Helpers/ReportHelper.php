@@ -125,6 +125,329 @@ if (!function_exists('description_kemampuan')) {
             case 'KEMAMPUAN UNTUK MEMAHAMI MASALAH':
                 return description_kemampuan_memahami_masalah($score, $title);
                 break;
+            case 'INISIATIF':
+                return description_inisiatif($score);
+                break;
+            case 'KOMITMEN TERHADAP TUGAS':
+                return description_komitmen_terhadap_tugas($score);
+                break;
+            case 'DAYA TAHAN TERHADAP STRES':
+                return description_daya_tahan_terhadap_stres($score);
+                break;
+            case 'MOTIVASI BERPRESTASI':
+                return description_motivasi_berprestasi($score);
+                break;
+            case 'SISTEMATIKA KERJA':
+                return description_sistematika_kerja($score);
+                break;
+            case 'KEMAMPUAN KERJASAMA':
+                return description_kemampuan_kerjasama($score);
+                break;
+            case 'SENSITIFITAS':
+                return description_sensitifitas($score);
+                break;
+            case 'KEPERCAYAAN DIRI':
+                return description_kepercayaan_diri($score);
+                break;
+            case 'PENYESUAIAN DIRI':
+                return description_penyesuaian_diri($score);
+                break;
+            case 'KEMANDIRIAN':
+                return description_kemandirian($score);
+                break;
+            case 'STABILITAS EMOSIONAL':
+                return description_stabilitas_emosional($score);
+                break;
+            case 'KONTROL DIRI':
+                return description_kontrol_diri($score);
+                break;
+        }
+    }
+}
+if (!function_exists('description_kontrol_diri')) {
+
+    function description_kontrol_diri($score)
+    {
+        switch ($score) {
+            case '1':
+                return "Sangat Kurang Mampu bertindak dengan terencana, hati-hati, dan mampu mengelola dorongan perasaan atau pikiran sesaat";
+                break;
+            case '2':
+                return "Kurang Mampu bertindak dengan terencana, hati-hati, dan mampu mengelola dorongan perasaan atau pikiran sesaat";
+                break;
+            case '3':
+                return "Cukup Mampu bertindak dengan terencana, hati-hati, dan mampu mengelola dorongan perasaan atau pikiran sesaat";
+                break;
+            case '4':
+                return "Mampu bertindak dengan terencana, hati-hati, dan mampu mengelola dorongan perasaan atau pikiran sesaat dengan baik";
+                break;
+            case '5':
+                return "Mampu bertindak dengan terencana, hati-hati, dan mampu mengelola dorongan perasaan atau pikiran sesaat dengan sangat baik";
+                break;
+        }
+    }
+}
+
+if (!function_exists('description_stabilitas_emosional')) {
+
+    function description_stabilitas_emosional($score)
+    {
+        switch ($score) {
+            case '1':
+                return "Sangat Kurang Mampu mengelola emosinya jika dihadapkan pada stimulus dari lingkungan yang tidak sesuai dengan mereka/bersifat menekan";
+                break;
+            case '2':
+                return "Kurang Mampu mengelola emosinya jika dihadapkan pada stimulus dari lingkungan yang tidak sesuai dengan mereka/bersifat menekan";
+                break;
+            case '3':
+                return "Cukup Mampu mengelola emosinya jika dihadapkan pada stimulus dari lingkungan yang tidak sesuai dengan mereka/bersifat menekan";
+                break;
+            case '4':
+                return "Mampu mengelola emosinya jika dihadapkan pada stimulus dari lingkungan yang tidak sesuai dengan mereka/bersifat menekan dengan baik";
+                break;
+            case '5':
+                return "Mampu mengelola emosinya jika dihadapkan pada stimulus dari lingkungan yang tidak sesuai dengan mereka/bersifat menekan dengan sangat baik";
+                break;
+        }
+    }
+}
+
+if (!function_exists('description_kemandirian')) {
+
+    function description_kemandirian($score)
+    {
+        switch ($score) {
+            case '1':
+                return "Sangat Kurang Mampu melakukan sesuatu tanpa campur tangan orang lain dan bertindak atas dasar pikiran dan kemauan sendiri";
+                break;
+            case '2':
+                return "Kurang Mampu melakukan sesuatu tanpa campur tangan orang lain dan bertindak atas dasar pikiran dan kemauan sendiri";
+                break;
+            case '3':
+                return "Cukup Mampu melakukan sesuatu tanpa campur tangan orang lain dan bertindak atas dasar pikiran dan kemauan sendiri ";
+                break;
+            case '4':
+                return "Mampu melakukan sesuatu tanpa campur tangan orang lain dan bertindak atas dasar pikiran dan kemauan sendiri dengan baik";
+                break;
+            case '5':
+                return "Mampu melakukan sesuatu tanpa campur tangan orang lain dan bertindak atas dasar pikiran dan kemauan sendiri dengan sangat baik";
+                break;
+        }
+    }
+}
+
+if (!function_exists('description_penyesuaian_diri')) {
+
+    function description_penyesuaian_diri($score)
+    {
+        switch ($score) {
+            case '1':
+                return "Sangat Kurang Mampu mengelola emosinya jika dihadapkan pada stimulus dari lingkungan yang tidak sesuai dengan mereka/bersifat menekan dengan sangat baik";
+                break;
+            case '2':
+                return "Kurang Mampu mengelola emosinya jika dihadapkan pada stimulus dari lingkungan yang tidak sesuai dengan mereka/bersifat menekan ";
+                break;
+            case '3':
+                return "Cukup Mampu mengelola emosinya jika dihadapkan pada stimulus dari lingkungan yang tidak sesuai dengan mereka/bersifat menekan";
+                break;
+            case '4':
+                return "Mampu mengelola emosinya jika dihadapkan pada stimulus dari lingkungan yang tidak sesuai dengan mereka/bersifat menekan dengan baik";
+                break;
+            case '5':
+                return "Mampu mengelola emosinya jika dihadapkan pada stimulus dari lingkungan yang tidak sesuai dengan mereka/bersifat menekan dengan sangat baik";
+                break;
+        }
+    }
+}
+
+if (!function_exists('description_kepercayaan_diri')) {
+
+    function description_kepercayaan_diri($score)
+    {
+        switch ($score) {
+            case '1':
+                return "Sangat Kurang Mampu menunjukkan performa yang mengekspresikan kelebihan yang dimilikinya";
+                break;
+            case '2':
+                return "Kurang Mampu menunjukkan performa yang mengekspresikan kelebihan yang dimilikinya";
+                break;
+            case '3':
+                return "Cukup Mampu menunjukkan performa yang mengekspresikan kelebihan yang dimilikinya";
+                break;
+            case '4':
+                return "Mampu menunjukkan performa yang mengekspresikan kelebihan yang dimilikinya dengan baik";
+                break;
+            case '5':
+                return "Mampu menunjukkan performa yang mengekspresikan kelebihan yang dimilikinya dengan sangat baik";
+                break;
+        }
+    }
+}
+
+if (!function_exists('description_sensitifitas')) {
+
+    function description_sensitifitas($score)
+    {
+        switch ($score) {
+            case '1':
+                return "Sangat Kurang peka terhadap perasaan, kebutuhan, dan kepentingan orang lain";
+                break;
+            case '2':
+                return "Kurang peka terhadap perasaan, kebutuhan, dan kepentingan orang lain";
+                break;
+            case '3':
+                return "Cukup peka terhadap perasaan, kebutuhan, dan kepentingan orang lain";
+                break;
+            case '4':
+                return "Memiliki empati dan kepekaan terhadap perasaan, kebutuhan, dan kepentingan orang lain dengan baik";
+                break;
+            case '5':
+                return "Memiliki empati dan kepekaan terhadap perasaan, kebutuhan, dan kepentingan orang lain dengan sangat baik";
+                break;
+        }
+    }
+}
+
+if (!function_exists('description_kemampuan_kerjasama')) {
+
+    function description_kemampuan_kerjasama($score)
+    {
+        switch ($score) {
+            case '1':
+                return "Sangat pasif menjalin kerjasama dengan orang lain dan terlibat secara aktif dalam kelompok";
+                break;
+            case '2':
+                return "Pasif menjalin kerjasama dengan orang lain dan terlibat secara aktif dalam kelompok";
+                break;
+            case '3':
+                return "Cukup menjalin kerjasama dengan orang lain dan terlibat secara aktif dalam kelompok";
+                break;
+            case '4':
+                return "Mampu menjalin kerjasama dengan orang lain dan terlibat secara aktif dalam kelompok dengan baik";
+                break;
+            case '5':
+                return "Mampu menjalin kerjasama dengan orang lain dan terlibat secara aktif dalam kelompok dengan sangat baik";
+                break;
+        }
+    }
+}
+
+if (!function_exists('description_sistematika_kerja')) {
+
+    function description_sistematika_kerja($score)
+    {
+        switch ($score) {
+            case '1':
+                return "Sangat Kurang terbiasa bekerja teratur dan terencana";
+                break;
+            case '2':
+                return "Kurang terbiasa bekerja teratur dan terencana";
+                break;
+            case '3':
+                return "Cukup terbiasa bekerja teratur dan terencana";
+                break;
+            case '4':
+                return "Terbiasa bekerja teratur dan terencana";
+                break;
+            case '5':
+                return "Sangat Terbiasa bekerja teratur dan terencana";
+                break;
+        }
+    }
+}
+
+if (!function_exists('description_motivasi_berprestasi')) {
+
+    function description_motivasi_berprestasi($score)
+    {
+        switch ($score) {
+            case '1':
+                return "Sangat Kurang Mempunyai dorongan yang kuat untuk menyelesaikan tugas-tugas yang diberikan";
+                break;
+            case '2':
+                return "Kurang Mempunyai dorongan yang kuat untuk menyelesaikan tugas-tugas yang diberikan";
+                break;
+            case '3':
+                return "Cukup Mempunyai dorongan yang kuat untuk menyelesaikan tugas-tugas yang diberikan";
+                break;
+            case '4':
+                return "Mempunyai dorongan yang kuat untuk menyelesaikan tugas-tugas yang diberikan dengan baik";
+                break;
+            case '5':
+                return "Mempunyai dorongan yang kuat untuk menyelesaikan tugas-tugas yang diberikan dengan sangat baik";
+                break;
+        }
+    }
+}
+
+if (!function_exists('description_daya_tahan_terhadap_stres')) {
+
+    function description_daya_tahan_terhadap_stres($score)
+    {
+        switch ($score) {
+            case '1':
+                return "Sangat Kurang Mampu mengelola tekanan yang dialami saat bekerja ataupun dari kehidupan pribadi yang dapat mengganggu keseimbangan tubuhnya";
+                break;
+            case '2':
+                return "Kurang Mampu mengelola tekanan yang dialami saat bekerja ataupun dari kehidupan pribadi yang dapat mengganggu keseimbangan tubuhnya";
+                break;
+            case '3':
+                return "Cukup Mampu mengelola tekanan yang dialami saat bekerja ataupun dari kehidupan pribadi yang dapat mengganggu keseimbangan tubuhnya";
+                break;
+            case '4':
+                return "Mampu mengelola tekanan yang dialami saat bekerja ataupun dari kehidupan pribadi yang dapat mengganggu keseimbangan tubuhnya dengan baik";
+                break;
+            case '5':
+                return "Mampu mengelola tekanan yang dialami saat bekerja ataupun dari kehidupan pribadi yang dapat mengganggu keseimbangan tubuhnya dengan sangat baik";
+                break;
+        }
+    }
+}
+
+if (!function_exists('description_komitmen_terhadap_tugas')) {
+
+    function description_komitmen_terhadap_tugas($score)
+    {
+        switch ($score) {
+            case '1':
+                return "Sangat Kurang Menunjukkan ketekunan, keuletan, kerja keras, dan keyakinan dari kemampuan yang dimiliki saat dihadapkan pada suatu tugas";
+                break;
+            case '2':
+                return "Kurang Menunjukkan ketekunan, keuletan, kerja keras, dan keyakinan dari kemampuan yang dimiliki saat dihadapkan pada suatu tugas";
+                break;
+            case '3':
+                return "Cukup Menunjukkan ketekunan, keuletan, kerja keras, dan keyakinan dari kemampuan yang dimiliki saat dihadapkan pada suatu tugas";
+                break;
+            case '4':
+                return "Menunjukkan ketekunan, keuletan, kerja keras, dan keyakinan dari kemampuan yang dimiliki saat dihadapkan pada suatu tugas dengan baik";
+                break;
+            case '5':
+                return "Menunjukkan ketekunan, keuletan, kerja keras, dan keyakinan dari kemampuan yang dimiliki saat dihadapkan pada suatu tugas dengan sangat baik";
+                break;
+        }
+    }
+}
+
+if (!function_exists('description_inisiatif')) {
+
+    function description_inisiatif($score)
+    {
+        switch ($score) {
+            case '1':
+                return "Sangat Kurang Mampu menunjukkan ide/pendapat yang berbeda dengan orang lain saat berada dalam situasi tertentu";
+                break;
+            case '2':
+                return "Kurang Mampu menunjukkan ide/pendapat yang berbeda dengan orang lain saat berada dalam situasi tertentu";
+                break;
+            case '3':
+                return "Cukup Mampu menunjukkan ide/pendapat yang berbeda dengan orang lain saat berada dalam situasi tertentu";
+                break;
+            case '4':
+                return "Mampu menunjukkan ide/pendapat yang berbeda dengan orang lain saat berada dalam situasi tertentu dengan baik";
+                break;
+            case '5':
+                return "Mampu menunjukkan ide/pendapat yang berbeda dengan orang lain saat berada dalam situasi tertentu dengan sangat baik";
+                break;
         }
     }
 }
@@ -398,22 +721,22 @@ if (!function_exists('orientasi_description')) {
     function orientasi_description($score)
     {
         switch ($score) {
-            case 'R' :
+            case 'R':
                 return "Menyukai aktifitas yg lebih banyak 'Mengerjakan' drpd  aktifitas yg banyak 'Memikirkan' , Lebih suka bekerja dengan benda atau peralatan konkrit (mesin, perkakas, alat kerja dlsb) atau hewan daripada dgn orang. , Menyukai pekerjaan yg bersifat praktis dan menggunakan tangan scr langsung (aktifitas manual). , Cenderung menyukai situasi kerja individual (Autonomous or solitary situations) , dan Cenderung memiliki kemauan yg kuat, akurat , dan metodik.";
                 break;
-            case 'I' :
+            case 'I':
                 return "Biasanya kreatif dan banyak akal, cerdik. Menyukai bekerja dengan ide-ide, dan penggunaan pengetahuan (intelek atau teoritis) drpd bekerja dgn benda atau orang.  Terlihat analitis, menyukai aktifitas dalam bidang sains dan penelitian. Suka mencari tahu asal muasal sesuatu dengan menggunakan metode ilmiah atau pendekatan matematis. Cenderung hati-hati, kritis, mandiri, akurat, rasional, dan intelektual.";
                 break;
-            case 'A' : 
+            case 'A':
                 return "Cenderung memiliki daya imajinasi yg kuat dan mampu mengekspresikan suatu pandangan atau pendapat menjadi bentuk/produk kreatif. Kurang sistematis dalam bekerja, cenderung menunjukkan perilaku yg ekspresif atau aktifitas kreatif yg melibatkan ekspresi. Kadang terlihat eksentrik (nyeleneh) dalam interaksinya dengan lingkungan.  Menghargai usaha-usaha yg bersifat inovatif dan estetik, gagasan-gagasan “aneh’ atau tidak lazim, keaslian, dan imajinasi.  Biasanya digambarkan sebagai imajinatif, original, intuitif, mandiri, penuh semangat, tidak konvensional (nyeleneh) dan penih idealisme.";
                 break;
-            case 'S' :
+            case 'S':
                 return "Lebih menyukai bekerja dengan orang drpd dgn benda seperti aktifitas : menginformasikan sesuatu, membimbing, melatih, dan berinteraksi dengan orang lain.  Berjiwa sosial (senang membantu), suka bekerjasama, dan penuh etika.  Berminat dengan orang dan masalah-masalah mereka, senang mencari tahu sebab-sebab orang berperilaku, pola-pola budaya, gaya hidup.  Biasanya digambarkan sebagai : bersahabat, senang berkawan dan bekerjasama dengan orang lain, murah hati (dermawan). Biasanya digambarkan sebagai : penuh pemikiran, empatik, idealistic, bertanggung jawab, dan peduli dengan kesulitan orang lain.";
                 break;
-            case 'E' :
+            case 'E':
                 return "Menyukai aktifitas mengatur atau mengelola sesuatu sehingga menghasilkan suatu keuntungan atau perolehan ekonomi.  Senang mempengaruhi dan membujuk orang lain untuk mencapai suatu tujuan.  Menyukai tantangan (biasanya dalam bidang politik, ekonomi), senang bersaing-saingan, berani mengambil risiko. Biasanya digambarkan sebagai pribadi yg : ambisius, berpengaruh, senang mendominasi, enerjik, ekstrovert, optimis,  Biasanya digambarkan sebagai pribadi yg : menyukai popularitas, percaya diri tinggi, banyak bicara dan senang berkawan.";
                 break;
-            case 'C' :
+            case 'C':
                 return "Menyukai aktifitas yg melibatkan perencanaan dan pengaturan data atau benda sehingga rapi dengan pendekatan yag teratur , baik dlm konteks pribadi atau untuk memenuhi target pekerjaan. Menyukai ketepatan informasi, keteraturan, dan prestasi dalam bidang usaha.  Biasanya digambarkan sebagai pribadi yang : patuh, taat aturan, setia, praktis, hati-hati, penuh pertimbangan, efisien, rapi dan teratur, tekun dan cermat.";
                 break;
         }
@@ -424,22 +747,22 @@ if (!function_exists('orientasi_title')) {
     function orientasi_title($score)
     {
         switch ($score) {
-            case 'R' :
+            case 'R':
                 return "Realistic";
                 break;
-            case 'I' :
+            case 'I':
                 return "Iventigative";
                 break;
-            case 'A' : 
+            case 'A':
                 return "Artistic";
                 break;
-            case 'S' :
+            case 'S':
                 return "Social";
                 break;
-            case 'E' :
+            case 'E':
                 return "Enterprise";
                 break;
-            case 'C' :
+            case 'C':
                 return "Conventional";
                 break;
         }

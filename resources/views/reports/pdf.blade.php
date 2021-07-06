@@ -354,7 +354,7 @@
             'score' => "$data->konsentrasi"
             ])
             <!--  END KONSENTRASI -->
-
+                <br><br><br>
             <!-- DAYA INGAT -->
             @include('reports.widget-kemampuanumum',[
             'image' => "10.jpg",
@@ -373,7 +373,120 @@
             ])
             <!--  END  KEMAMPUAN UNTUK MEMAHAMI MASALAH -->
 
+            <img src="{{ (asset('assets-report/judul1.jpg'))}}" width="200px" style="margin-top: 10px;">
 
+            <!-- INISIATIF -->
+            @include('reports.widget-kemampuanumum',[
+            'image' => "prf/8.jpg",
+            'title' => "INISIATIF",
+            'color_title' => "df8f18",
+            'score' => "$data->inisiatif"
+            ])
+            <!-- INISIATIF -->
+
+            <!-- KOMITMEN TERHADAP TUGAS -->
+            @include('reports.widget-kemampuanumum',[
+            'image' => "prf/9.jpg",
+            'title' => "KOMITMEN TERHADAP TUGAS",
+            'color_title' => "cb2f30",
+            'score' => "$data->komitmen_terhadap_tugas"
+            ])
+            <!-- KOMITMEN TERHADAP TUGAS -->
+
+            <!-- DAYA TAHAN TERHADAP STRES -->
+            @include('reports.widget-kemampuanumum',[
+            'image' => "prf/10.jpg",
+            'title' => "DAYA TAHAN TERHADAP STRES",
+            'color_title' => "2f9bcc",
+            'score' => "$data->daya_tahan_terhadap_stress"
+            ])
+            <!-- DAYA TAHAN TERHADAP STRES -->
+
+            <!-- MOTIVASI BERPRESTASI -->
+            @include('reports.widget-kemampuanumum',[
+            'image' => "prf/11.jpg",
+            'title' => "MOTIVASI BERPRESTASI",
+            'color_title' => "ad30cc",
+            'score' => "$data->motivasi_berprestasi"
+            ])
+            <!-- MOTIVASI BERPRESTASI -->
+
+            <!-- SISTEMATIKA KERJA -->
+            @include('reports.widget-kemampuanumum',[
+            'image' => "prf/12.jpg",
+            'title' => "SISTEMATIKA KERJA",
+            'color_title' => "cd2f6c",
+            'score' => "$data->sistematika_kerja"
+            ])
+            <!-- SISTEMATIKA KERJA -->
+
+            <img src="{{ (asset('assets-report/judul2.jpg'))}}" width="200px" style="margin-top: 10px;">
+
+            <!-- KEMAMPUAN KERJASAMA -->
+            @include('reports.widget-kemampuanumum',[
+            'image' => "prf/1.jpg",
+            'title' => "KEMAMPUAN KERJASAMA",
+            'color_title' => "c1d43c",
+            'score' => "$data->kemampuan_kerjasama"
+            ])
+            <!-- KEMAMPUAN KERJASAMA -->
+
+            <!-- SENSITIFITAS -->
+            @include('reports.widget-kemampuanumum',[
+            'image' => "prf/2.jpg",
+            'title' => "SENSITIFITAS",
+            'color_title' => "e79b2b",
+            'score' => "$data->sensitifitas"
+            ])
+            <!-- SENSITIFITAS -->
+
+            <!-- KEPERCAYAAN DIRI -->
+            @include('reports.widget-kemampuanumum',[
+            'image' => "prf/3.jpg",
+            'title' => "KEPERCAYAAN DIRI",
+            'color_title' => "cb2f30",
+            'score' => "$data->kepercayaan_diri"
+            ])
+            <!-- KEPERCAYAAN DIRI -->
+
+            <!-- PENYESUAIAN DIRI -->
+            @include('reports.widget-kemampuanumum',[
+            'image' => "prf/4.jpg",
+            'title' => "PENYESUAIAN DIRI",
+            'color_title' => "2f9bcc",
+            'score' => "$data->penyesuaian_diri"
+            ])
+            <!-- PENYESUAIAN DIRI -->
+                <br>
+            <!-- KEMANDIRIAN -->
+            @include('reports.widget-kemampuanumum',[
+            'image' => "prf/5.jpg",
+            'title' => "KEMANDIRIAN",
+            'color_title' => "ad30cc",
+            'score' => "$data->kemandirian"
+            ])
+            <!-- KEMANDIRIAN -->
+
+            <!-- STABILITAS EMOSIONAL -->
+            @include('reports.widget-kemampuanumum',[
+            'image' => "prf/6.jpg",
+            'title' => "STABILITAS EMOSIONAL",
+            'color_title' => "cd2f6c",
+            'score' => "$data->stabilitas_emosional"
+            ])
+            <!-- STABILITAS EMOSIONAL -->
+
+            <!-- KONTROL DIRI -->
+            @include('reports.widget-kemampuanumum',[
+            'image' => "prf/7.jpg",
+            'title' => "KONTROL DIRI",
+            'color_title' => "b1c42a",
+            'score' => "$data->kontrol_diri"
+            ])
+            <!-- KONTROL DIRI -->
+
+
+            
             <table style="margin-bottom: 10px; margin-left: -5px;">
                 <tr>
                     <td>
@@ -385,7 +498,7 @@
                                 Grafik Orientasi <br>
                                 Minat Studi <br>
                                 <span style="font-size: 11;">
-                                <br>
+                                    <br>
                                     {{ $data->nama }}
                                 </span>
 
