@@ -69,7 +69,7 @@ Import Data
 @section('js')
 <script>
     $('#btn-download').click(function() {
-        window.open("{{ url('download-example-excel') }}");
+        window.open("{{ url('download-example-excel-new') }}");
     });
 </script>
 @endsection

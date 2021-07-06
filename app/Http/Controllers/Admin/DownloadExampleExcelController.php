@@ -4,17 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Excel;
+use App\Exports\ExampleExcelExport;
 
 class DownloadExampleExcelController extends Controller
 {
     public function download()
     {
-        $file= storage_path(). "/example-data-import.csv";
-
-        $headers = array(
-                  'Content-Type: application/pdf',
-                );
-    
-        return response()->download($file, 'example-data-import.csv', $headers);
+        return Excel::download(new ExampleExcelExport, 'example_data.csv');
     }
 }
