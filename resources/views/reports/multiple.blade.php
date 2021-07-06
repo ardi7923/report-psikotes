@@ -394,7 +394,7 @@
                                 Minat Studi <br>
                                 <span style="font-size: 11;">
                                     <br>
-                                    {{ $data->nama }}
+                                    {{ $d->nama }}
                                 </span>
                             </div>
                         </div>
