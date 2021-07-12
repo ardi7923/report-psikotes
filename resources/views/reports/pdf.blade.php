@@ -264,7 +264,7 @@
                 </table>
             </div>
 
-            <h5 style="padding:5px;background-color:#0e81c4;color:white;width:408px; margin-top: -10px;">IQ = {{ $data->iq }} ({{ iq_description($data->iq) }} menurut IST)
+            <h5 style="padding:5px;background-color:#0e81c4;color:white;width:408px; margin-top: -10px; font-weight: bold; font-size: 16;">IQ = {{ $data->iq }} ({{ iq_description($data->iq) }} menurut IST)
             </h5>
             <img src="{{ (asset('assets-report/judul.jpg'))}}" width="300px" style="margin-top: -20px; margin-bottom: -15px">
 
