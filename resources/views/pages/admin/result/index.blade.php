@@ -145,7 +145,9 @@ Hasil Ujian
 
     $('#download-result-school').click(function() {
         school_name = $(".school_name").val();
-        window.open("{{ url('report-result?type=multiple') }}" + "&school_name=" + school_name);
+        $("#download-result-school").attr("data-url","{{ url('result-bypart') }}/"+school_name);
+        $("#download-result-school").click(showForm);
+    //     window.open("{{ url('report-result?type=multiple') }}" + "&school_name=" + school_name);
     });
 
     $('#download-excel-school').click(function() {

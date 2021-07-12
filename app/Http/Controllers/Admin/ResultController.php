@@ -35,7 +35,47 @@ class ResultController extends Controller
         return MainService::renderToJson('pages.admin.result.create');
     }
 
-    public function store(Request $request,ResultRequest $validator)
+    public function resultbypart($school)
+    {
+        $limit = 300;
+        $dataCount  = Result::where('sekolah', $school)->count();
+        $part = $this->getPart($dataCount,$limit);
+        $offset = 0;
+
+        for ($i = 0; $i < $part; $i++) {
+            if ($i == 0) {
+                $offset += 0;
+            } else if ($i == 1) {
+                $offset += $limit;
+            } else {
+                $offset += $limit;
+            }
+
+            $url[] = env('APP_URL') . '/report-result?type=multiple&school_name=' . $school . '&limit=' . $limit . '&offset=' . $offset;
+        }
+
+        return MainService::renderToJson('pages.admin.result.bypart', compact('url','school','limit'));
+    }
+
+    private function getPart($dataCount, $limit)
+    {
+        switch ($dataCount) {
+            case  $dataCount <= $limit:
+                return  1;
+                break;
+            case $dataCount <= $limit * 2;
+                return  2;
+                break;
+            case $dataCount <= $limit * 3;
+                return  3;
+                break;
+            case $dataCount <= $limit * 4;
+                return  4;
+                break;
+        }
+    }
+
+    public function store(Request $request, ResultRequest $validator)
     {
         return $this->crud_service
             ->setModel($this->model)
@@ -121,17 +161,16 @@ class ResultController extends Controller
     }
 
 
-    public function massdelete(Request $request,ResponseService $response)
+    public function massdelete(Request $request, ResponseService $response)
     {
-        $datas  = Result::where('sekolah',$request->school_name)->get();
+        $datas  = Result::where('sekolah', $request->school_name)->get();
 
-        foreach($datas as $d){
+        foreach ($datas as $d) {
             DeleteStudent::dispatch($d->id);
         }
 
         return $response->setCode(200)
-                     	 ->setMsg("Data Berhasil Masuk di Antrian")
-                     	 ->success();
-        
+            ->setMsg("Data Berhasil Masuk di Antrian")
+            ->success();
     }
-}   
+}

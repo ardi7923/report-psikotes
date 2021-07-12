@@ -24,26 +24,29 @@ Download Hasil Ujian
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <a href="{{ url('report-result?type=multiple&school_name='.Auth::user()->school->name) }}" target="_blank">
-                <button class="btn btn-danger" > <i class="fa fa-file-pdf"></i> Download Semua</button>
-            </a>
-            <a href="{{ url('export-excel-rekap?school_name='.Auth::user()->school->name) }}" target="_blank">
-                <button class="btn btn-success" > <i class="fa fa-file-excel"></i> Download Rekap Excel</button>
-            </a>
-            <br><br>
-            <table class="table table-bordered table-hover" id="myTable" width="100%" cellspacing="0">
-                <thead>
-                    <tr>
-                        <th width="50px">No</th>
-                        <th>Nomor Tes</th>
-                        <th>Nama</th>
-                        <th>Sekolah</th>
-                        <th width="150px">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
+            @if($total_student < 300) <a href="{{ url('report-result?type=multiple&school_name='.Auth::user()->school->name) }}" target="_blank">
+                <button class="btn btn-danger"> <i class="fa fa-file-pdf"></i> Download Semua</button>
+                </a>
+                @else
+                <button class="btn btn-danger" id="download-bypart" data-url="{{ url('result-bypart/'.Auth::user()->school->name) }}"> <i class="fa fa-file-pdf"></i> Download Semua</button></button>
+                @endif
+                <a href="{{ url('export-excel-rekap?school_name='.Auth::user()->school->name) }}" target="_blank">
+                    <button class="btn btn-success"> <i class="fa fa-file-excel"></i> Download Rekap Excel</button>
+                </a>
+                <br><br>
+                <table class="table table-bordered table-hover" id="myTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th width="50px">No</th>
+                            <th>Nomor Tes</th>
+                            <th>Nama</th>
+                            <th>Sekolah</th>
+                            <th width="150px">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
         </div>
     </div>
 </div>
@@ -97,12 +100,7 @@ Download Hasil Ujian
         });
     });
 
-    $(".modal_add").click(showForm);
-    $('body').on("click", ".btn_edit", showForm);
-    $('body').on("click", ".btn_detail", showForm);
-    $('body').on("click", ".btn_delete", deleteForm);
+    $("#download-bypart").click(showForm);
 
-    $('#modals').on("submit", ".forms", saveForm);
-    $('#modals').on("submit", ".edit-form", saveForm);
 </script>
 @endsection

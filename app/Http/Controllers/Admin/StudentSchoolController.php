@@ -20,7 +20,9 @@ class StudentSchoolController extends Controller
         if ($request->ajax()) {
             return $this->datatable();
         }
-        return view('pages.admin.student-school.index');
+
+        $total_student = Result::where('sekolah', Auth::user()->school->name)->count();
+        return view('pages.admin.student-school.index',compact("total_student"));
     }
 
     /**

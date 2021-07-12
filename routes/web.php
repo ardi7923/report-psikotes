@@ -44,7 +44,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 		Route::resource('result', 'ResultController');
 		Route::delete('result-massdelete', 'ResultController@massdelete');
-
+		Route::get('result-bypart/{school}', 'ResultController@resultbypart');
 		Route::get('export-excel-rekap', 'ExportExcelRekapController@export');
 
 		Route::get('download-example-excel-new', 'DownloadExampleExcelController@download');
