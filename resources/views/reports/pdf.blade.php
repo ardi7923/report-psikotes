@@ -246,8 +246,8 @@
 
                         <tr class="color-blue">
                             <td></td>
-                            <td>Tanggal Lahir</td>
-                            <td>: {{ $data->tanggal_lahir }} </td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp; </td>
                         </tr>
                         <tr class="color-blue">
 
