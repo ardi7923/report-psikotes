@@ -17,10 +17,10 @@ class DashboardController extends Controller
             $schools = School::count();
             $students = Result::count();
             $userSchools = User::isSchool()->count();
-
+            $student_schools = School::with("results")->get();
             $last_import = Result::limit(10)->orderBy('created_at')->get();
 
-            return view('pages.admin.dashboard.index', compact('schools', 'students', 'userSchools', 'last_import'));
+            return view('pages.admin.dashboard.index', compact('schools', 'students', 'userSchools', 'last_import','student_schools'));
 
         }else if(Auth::user()->role == 'school'){
 
