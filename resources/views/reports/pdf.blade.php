@@ -240,20 +240,15 @@
                             <td rowspan="5" style="padding-left: 15px;">
                                 <div style="text-align:left;color:#0080b3;font-weight:bold; width:200px; margin-bottom:5px; vertical-align: top;"> {{ $data->nama }} </div>
                                 <div style="text-align:left;color:#0080b3;font-weight:bold; width:200px;margin-bottom:5px; vertical-align: top;"> {{ $data->jenis_kelamin }} </div>
-                                <div style="text-align:left;color:#0080b3;font-weight:bold; width:200px; vertical-align: top;"> @if($data->umur) {{ $data->umur }} Tahun @endif</div>
                             </td>
                         </tr>
 
-                        <tr class="color-blue">
-                            <td></td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp; </td>
-                        </tr>
-                        <tr class="color-blue">
+
+                        <tr class="color-blue" >
 
                             <td></td>
-                            <td>Tanggal Tes </td>
-                            <td>: {{ $data->tanggal_tes }} </td>
+                            <td style="padding-top: 20px;">Tanggal Tes </td>
+                            <td style="padding-top: 20px;">: {{ $data->tanggal_tes }} </td>
                         </tr>
                         <tr class="color-blue">
                             <td></td>

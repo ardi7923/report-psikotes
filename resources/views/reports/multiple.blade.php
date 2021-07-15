@@ -214,8 +214,6 @@
             /* page-break-after: always; */
             page-break-inside: avoid;
         }
-
-
     </style>
 
 </head>
@@ -246,20 +244,15 @@
                             <td rowspan="5" style="padding-left: 15px;">
                                 <div style="text-align:left;color:#0080b3;font-weight:bold; width:200px; margin-bottom:5px; vertical-align: top;"> {{ $d->nama }} </div>
                                 <div style="text-align:left;color:#0080b3;font-weight:bold; width:200px;margin-bottom:5px; vertical-align: top;"> {{ $d->jenis_kelamin }} </div>
-                                <div style="text-align:left;color:#0080b3;font-weight:bold; width:200px; vertical-align: top;"> @if($d->umur) {{ $d->umur }} Tahun @endif</div>
                             </td>
                         </tr>
 
-                        <tr class="color-blue">
-                            <td></td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp; </td>
-                        </tr>
+
                         <tr class="color-blue">
 
                             <td></td>
-                            <td>Tanggal Tes </td>
-                            <td>: {{ $d->tanggal_tes }} </td>
+                            <td style="padding-top: 20px;">Tanggal Tes </td>
+                            <td style="padding-top: 20px;">: {{ $d->tanggal_tes }} </td>
                         </tr>
                         <tr class="color-blue">
                             <td></td>
@@ -346,7 +339,7 @@
             ])
             <!--  END KEMAMPUAN PENALARAN / ANALISIS LOGIS -->
 
-        
+
 
             <!-- KONSENTRASI -->
             @include('reports.widget-kemampuanumum',[
@@ -356,7 +349,7 @@
             'score' => "$d->konsentrasi"
             ])
             <!--  END KONSENTRASI -->
-            </div>
+        </div>
         <div class="page">
             <!-- DAYA INGAT -->
             @include('reports.widget-kemampuanumum',[
