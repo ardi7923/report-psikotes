@@ -24,7 +24,7 @@ class ReportResultController extends Controller
                 ->setWarnings(true);
             // return view('reports.pdf',compact('data'));  
 
-            return $pdf->download('Hasil Ujian ' . $data->nama . '.pdf');
+            return $pdf->stream('Hasil Ujian ' . $data->nama . '.pdf');
         } else if ($request->type == 'multiple') {
 
             if (!$request->limit) {

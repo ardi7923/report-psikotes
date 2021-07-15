@@ -751,7 +751,7 @@ if (!function_exists('orientasi_title')) {
                 return "Realistic";
                 break;
             case 'I':
-                return "Iventigative";
+                return "Investigative";
                 break;
             case 'A':
                 return "Artistic";

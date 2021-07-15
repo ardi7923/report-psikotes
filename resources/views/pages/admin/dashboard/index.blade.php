@@ -165,7 +165,7 @@ Dashboard
                 @forelse($student_schools as $ss)
                 <tr>
                   <td> {{ $ss->name }} </td>
-                  <td> {{ $ss->results->count() }} </td>
+                  <td> {{ $ss->results->count()  }} </td>
                 </tr>
                 @empty
                 <tr>
