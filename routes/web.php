@@ -14,10 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'Front\HomeController@index');
-Route::get('result-public', 'Front\ResultPublicController@index');
-Route::get('result-public/check', 'Front\ResultPublicController@check');
+// Route::get('/', 'Front\HomeController@index');
+// Route::get('result-public', 'Front\ResultPublicController@index');
+// Route::get('result-public/check', 'Front\ResultPublicController@check');
 
+Route::get('/', function(){
+	return redirect('login');
+});
 
 Route::get('report-result', 'ReportResultController@index');
 
